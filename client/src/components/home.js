@@ -1,31 +1,34 @@
+import React, { useRef, useEffect, useState } from 'react';
+import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+mapboxgl.accessToken = 'pk.eyJ1Ijoia2VlZ2FuLW1jcm9iZXJ0cyIsImEiOiJjbGExZmVwdnEwMnF3M3BranY2eG51bmdvIn0.ZZtanHWCPYfhDObnypq7VA';
+
 function Home(){
-
-    const scheduleKey = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': 'b4a431490bmsh7ccab2b032763d3p18e9acjsnbf25af2a7eeb',
-            'X-RapidAPI-Host': 'nfl-schedule.p.rapidapi.com'
-        }
-    };
     
-    fetch('https://nfl-schedule.p.rapidapi.com/v1/schedules', scheduleKey)
-        .then(response => response.json())
-        .then(response => console.log("schedule:", response))
-        .catch(err => console.error(err));
-
-
-        
-        fetch('https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/teams?limit=32')
-            .then(response => response.json())
-            .then(response => console.log("athletes", response))
-            .catch(err => console.error(err));
-
-
-
-    return(
-        <div className="page">
-            <h1>Home</h1>
-        </div>
+    
+    const [map, setMap] = useState(null);
+    const [lng, setLng] = useState(-94.5);
+    const [lat, setLat] = useState(39.1);
+    const [zoom, setZoom] = useState(9);
+    
+    const ref = useRef(null);
+    useEffect(() => {
+      if (ref.current && !map) {
+        const map = new mapboxgl.Map({
+          container: ref.current,
+          style: "mapbox://styles/mapbox/streets-v11",
+          center: [lng, lat],
+          zoom: zoom
+        });
+        setMap(map);
+      }
+    });
+    
+    
+    return (
+    <div>
+        <h1>Map</h1>
+        <div className="map-container" ref={ref} ></div>
+    </div>
     )
 }
 

@@ -6,6 +6,10 @@ import Players from './components/players';
 import Teams from './components/teams';
 import LeagueLeaders from './components/leagueLeaders';
 import Header from './components/header';
+import React, { useRef, useEffect, useState } from 'react';
+import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+ 
+
 
 
 function App() {
