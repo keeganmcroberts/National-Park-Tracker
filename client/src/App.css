@@ -34,4 +34,6 @@
 
 .map-container {
   height: 400px;
+  width: 800px;
+  border: 5px double;
   }
