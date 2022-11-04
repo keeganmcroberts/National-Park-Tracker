@@ -16,12 +16,24 @@ import React, {useState, useEffect} from 'react';
 function App() {
   
   const [parkData, setParkData] = useState([])
+  const [nationalParks, setNationalParks] = useState([])
 
 useEffect(()=>{
-  fetch('https://developer.nps.gov/api/v1/parks?api_key=iT95c3FtY8GgMJecfLupDHzfbezucejRgKnDMPu5')
+  fetch('https://developer.nps.gov/api/v1/parks?limit=468&api_key=iT95c3FtY8GgMJecfLupDHzfbezucejRgKnDMPu5')
   .then(r => r.json())
   .then(parkData => setParkData(parkData.data))
+  
   }, [])
+
+  useEffect(()=>{
+    parkData.map(eachPark=>{
+      if (eachPark.designation === "National Park"){
+        console.log("NATIONAL PARKS", eachPark)
+      }
+    })
+  })
+
+  console.log("National parks:", nationalParks)
 
 
   return (

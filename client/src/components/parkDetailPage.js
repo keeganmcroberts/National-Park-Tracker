@@ -1,5 +1,12 @@
-function parkDetailPage({eachPark}){
+
+
+function ParkDetailPage({eachPark}){
     return(
-        <h1>{eachPark.fullName}</h1>
+        <div className="parkCard">
+            <p>{eachPark.fullName}</p>
+            <img src={eachPark.images[0]}></img>
+        </div>
     )
 }
+
+export default ParkDetailPage;

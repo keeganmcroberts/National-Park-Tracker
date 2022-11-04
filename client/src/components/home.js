@@ -1,3 +1,4 @@
+import ParkDetailPage from './parkDetailPage';
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2VlZ2FuLW1jcm9iZXJ0cyIsImEiOiJjbGExZmVwdnEwMnF3M3BranY2eG51bmdvIn0.ZZtanHWCPYfhDObnypq7VA';
@@ -31,14 +32,15 @@ function Home({parkData}){
       }
     });
     
-
-    parkData.map(eachPark=>console.log(eachPark))
-    
-    return (
-    <div>
-
-    </div>
+    return(
+        parkData.map(eachPark=>{
+            if(eachPark.designation === "National Park")
+            return (
+                <ParkDetailPage key={eachPark.id} eachPark={eachPark}/>
+            )
+        })
     )
 }
+
 
 export default Home;
