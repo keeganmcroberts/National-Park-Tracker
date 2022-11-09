@@ -17,6 +17,10 @@ function Home({parkData}){
 
 
     console.log("Home Data", parkData)
+    parkData.map(eachPark=>{
+        if(eachPark.designation === "National Park")
+        console.log(eachPark)
+    })
     // console.log(parkData.data)
     
     
@@ -33,12 +37,14 @@ function Home({parkData}){
     });
     
     return(
-        parkData.map(eachPark=>{
+        <div className="parkPage">
+        {parkData.map(eachPark=>{
             if(eachPark.designation === "National Park")
             return (
                 <ParkDetailPage key={eachPark.id} eachPark={eachPark}/>
             )
-        })
+        })}
+        </div>
     )
 }
 

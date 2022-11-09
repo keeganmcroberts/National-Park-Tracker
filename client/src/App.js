@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom"
 import Home from './components/home';
 import Players from './components/players';
 import Teams from './components/teams';
+import ParkDetailPage from './components/parkDetailPage';
 import LeagueLeaders from './components/leagueLeaders';
 import Header from './components/header';
 import React, {useState, useEffect} from 'react';
@@ -28,7 +29,7 @@ useEffect(()=>{
   useEffect(()=>{
     parkData.map(eachPark=>{
       if (eachPark.designation === "National Park"){
-        console.log("NATIONAL PARKS", eachPark)
+        // setNationalParks([])
       }
     })
   })
@@ -38,9 +39,10 @@ useEffect(()=>{
 
   return (
     <div className="App">
-      <Header/>
+      <Header parkData={parkData}/>
       <Routes>
         <Route path="/" element={<Home parkData={parkData}/>}></Route>
+        <Route path="/parks/:id" element={<ParkDetailPage/>}></Route>
         <Route path="/teams" element={<Teams/>}></Route>
         <Route path="/players" element={<Players/>}></Route>
         <Route path="/leagueLeaders" element={<LeagueLeaders/>}></Route>

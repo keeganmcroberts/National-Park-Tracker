@@ -1,14 +1,33 @@
-function Header(){
+import {useNavigate} from 'react-router-dom';
+
+
+
+
+
+
+function Header({parkData}){
+
+    let navigate = useNavigate();
+    function viewPark(id){
+        navigate(`/park/${id}`)
+    }
+
+
+
     return(
         <div className="header">
             <h1>National Parks</h1>
             <div className="page-banner">
-                <ul className="banner-links">
-                    <ul className="links"><a  href="/">Park1</a></ul>
-                    <ul className="links"><a  href="/teams">Park2</a></ul>
-                    <ul className="links"><a  href="/players">Park3</a></ul>
-                    <ul className="links"><a  href="/leagueLeaders">Park4</a></ul>        
-                </ul>
+                <li className="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Parks</a>
+                {parkData.map(eachPark=>{
+                if(eachPark.designation === "National Park")
+                return(
+                <div className="dropdown-content">
+                    <a onClick={() => viewPark(eachPark.id)} className="links">{eachPark.fullName}</a>        
+                </div>
+                )})}
+                </li>
             </div>
 
         </div>
