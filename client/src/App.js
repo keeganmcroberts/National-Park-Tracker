@@ -29,7 +29,7 @@ useEffect(()=>{
   useEffect(()=>{
     parkData.map(eachPark=>{
       if (eachPark.designation === "National Park"){
-        // setNationalParks([])
+        // setNationalParks([...nationalParks, eachPark])
       }
     })
   })

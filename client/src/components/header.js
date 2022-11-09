@@ -9,7 +9,7 @@ function Header({parkData}){
 
     let navigate = useNavigate();
     function viewPark(id){
-        navigate(`/park/${id}`)
+        navigate(`/park/${id.id}`)
     }
 
 
@@ -24,7 +24,7 @@ function Header({parkData}){
                 if(eachPark.designation === "National Park")
                 return(
                 <div className="dropdown-content">
-                    <a onClick={() => viewPark(eachPark.id)} className="links">{eachPark.fullName}</a>        
+                    <a onClick={() => viewPark(eachPark)} className="links">{eachPark.fullName}</a>        
                 </div>
                 )})}
                 </li>
