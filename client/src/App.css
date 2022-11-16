@@ -27,57 +27,22 @@
 
 
 
-.parkPage{
-  display: grid;
+
+.dropdown:hover .dropbtn {
   
 }
 
-.parkTitle{
-  display: flex;
-  justify-content: center;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: xx-large;
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
-.parkCard{
-  height: 500px;
-  align-items: center;
+li.dropdown {
+  display: block;
+  width: 50px;
+  
 }
-.map-container {
-  height: 400px;
-  width: 400px;
-  }
 
-.parkImage{
-    height: 400px;
-    width: 800px;
-    display: block;
-   
-    
-    
-  }
-
-  .parkHeader{
-    display: flex;
-    border: 5px double;
-    justify-content: center;
-  }
-
-  .dropdown:hover .dropbtn {
-  
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  li.dropdown {
-    display: block;
-    width: 50px;
-    
-  }
-
-  .dropdown-content {
+.dropdown-content {
   display: none;
   position: relative;
   background-color: #f9f9f9;
@@ -85,7 +50,7 @@
   box-shadow: 0px 8px 16px 0px rgba(45, 44, 44, 0.748);
   z-index: 10;
   cursor: pointer;
-
+  
 }
 
 
@@ -95,4 +60,59 @@
 
 .returnHome{
   cursor: pointer;
+}
+
+
+
+.parkPage{
+  display: grid;
+}
+.parkTitle{
+  display: flex;
+  justify-content: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: xx-large;
+}
+.parkCard{
+  height: 500px;
+  align-items: center;
+}
+.map-container {
+  height: 400px;
+  width: 400px;
+}
+
+.parkImage{
+    height: 400px;
+    width: 800px;
+    display: block;
+  }
+
+.parkHeader{
+    display: flex;
+    border: 5px double;
+    justify-content: center;
+}
+
+.parkDescription{
+  color: black;
+  display: block;
+  justify-content: center;
+  text-align: center;
+  border: 5px double;
+
+}
+
+.parkInfo{
+  display: flex;
+  justify-content: center;
+}
+
+.weather{
+  inline-size: 300px;
+  padding-right: 500px;
+}
+
+.directions{
+  inline-size: 300px;
 }

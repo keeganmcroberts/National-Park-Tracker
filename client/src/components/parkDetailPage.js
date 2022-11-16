@@ -56,6 +56,17 @@ function ParkDetailPage({eachPark, showList, setShowList}){
                         <img className="parkImage" src={parkData.images[0].url}></img>
                         <div ref={ref} className="map-container"> </div>
                     </div>
+                    <h2 className='parkDescription'>{parkData.description}</h2>
+                    <div className='parkInfo'>
+                        <div className='weather'>
+                            Weather
+                            <h5>{parkData.weatherInfo}</h5>
+                        </div>
+                        <div className='directions'>
+                            Directions
+                            <h5>{parkData.directionsInfo}</h5>
+                        </div>
+                    </div>
                 </div>
             ) 
         })
