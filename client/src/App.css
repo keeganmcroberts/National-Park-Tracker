@@ -25,25 +25,42 @@
 }
 
 
+
+
+.parkPage{
+  display: grid;
+  
+}
+
+.parkTitle{
+  display: flex;
+  justify-content: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: xx-large;
+}
+
+.parkCard{
+  height: 500px;
+  align-items: center;
+}
 .map-container {
   height: 400px;
-  width: 800px;
-  border: 5px double;
+  width: 400px;
   }
 
-  .parkCard{
-    border: 5px double;
-    height: 500px;
-  }
-
-  .parkPage{
-    display: grid;
+.parkImage{
+    height: 400px;
+    width: 800px;
+    display: block;
+   
+    
     
   }
 
-  .parkImage{
-    height: 100px;
-    width: 100px;
+  .parkHeader{
+    display: flex;
+    border: 5px double;
+    justify-content: center;
   }
 
   .dropdown:hover .dropbtn {
@@ -64,12 +81,18 @@
   display: none;
   position: relative;
   background-color: #f9f9f9;
-  width: 500px;
-  box-shadow: 0px 8px 16px 0px rgba(220, 46, 46, 0.748);
-  z-index: 1;
+  width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(45, 44, 44, 0.748);
+  z-index: 10;
   cursor: pointer;
-  overflow-y: auto;
-  max-height: 100px;
+
 }
 
+
+
+
 .dropdown-content a:hover {background-color: rgb(125, 108, 224);}
+
+.returnHome{
+  cursor: pointer;
+}

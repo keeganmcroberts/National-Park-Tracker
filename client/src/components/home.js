@@ -16,11 +16,11 @@ function Home({parkData}){
     const ref = useRef(null);
 
 
-    console.log("Home Data", parkData)
-    parkData.map(eachPark=>{
-        if(eachPark.designation === "National Park")
-        console.log(eachPark)
-    })
+    // console.log("Home Data", parkData)
+    // parkData.map(eachPark=>{
+    //     if(eachPark.designation === "National Park")
+    //     console.log(eachPark)
+    // })
     // console.log(parkData.data)
     
     
@@ -34,14 +34,15 @@ function Home({parkData}){
         });
         setMap(map);
       }
-    });
+    }, []);
     
     return(
         <div className="parkPage">
         {parkData.map(eachPark=>{
             if(eachPark.designation === "National Park")
             return (
-                <ParkDetailPage key={eachPark.id} eachPark={eachPark}/>
+                // <ParkDetailPage key={eachPark.id} eachPark={eachPark}/>
+                <></>
             )
         })}
         </div>
