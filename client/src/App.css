@@ -1,6 +1,12 @@
+body{
+  background-color:rgb(215, 232, 201);
+}
+
 .App{
-  height: 100%;
-  width: 100%;
+  background-color:rgb(215, 232, 201);
+  min-height: 100%;
+  width: 100vw;
+  
   /* display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,23 +68,45 @@ li.dropdown {
   cursor: pointer;
 }
 
+.home--park-card{
+  text-align: center;
+ 
+}
+
+.card-title{
+inline-size: 200px;
+}
+
 .homepage-images{
   height: 200px;
   width: 200px;
   border: 5px double;
 }
 
+.info-button{
+ margin-left: auto;
+ background-color:rgb(200, 235, 171);
+ border-radius: 25%;
+ padding: 5px;
+}
+
+.info-button:hover{
+  background-color: green;
+}
+
 .homePage{
   justify-content: center;
 }
 
-.parkPage{
+.homePageGrid{
+  margin-top: 200px;
   display: grid;
   grid-template-columns: 200px 200px 200px 200px;
   grid-column-gap: 100px;
   grid-row-gap: 100px;
   justify-content: center;
 }
+
 .home-map-container {
   height: 300px;
   width: 100%;
@@ -96,6 +124,7 @@ li.dropdown {
 .parkCard{
   height: 500px;
   align-items: center;
+  background-color:rgb(215, 232, 201);
 }
 .map-container {
   height: 400px;
@@ -115,10 +144,12 @@ li.dropdown {
 }
 
 .parkDescription{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: black;
-  display: block;
+  /* display: block; */
   justify-content: center;
   text-align: center;
+  font-weight: 500;
   border: 5px double;
 
 }
@@ -126,13 +157,33 @@ li.dropdown {
 .parkInfo{
   display: flex;
   justify-content: center;
+
 }
 
 .weather{
   inline-size: 300px;
-  padding-right: 500px;
+  text-align: center;
+  border: 5px double;
+  margin-right: 50px;
 }
 
 .directions{
   inline-size: 300px;
+  text-align: center;
+  border: 5px double;
+  margin-left: 50px;
 }
+
+.activities{
+  text-align: center;
+  border: 5px double;
+  margin-top: 50px;
+}
+
+.activities-list{
+  display: inline-flex;
+  padding: 5px;
+  padding-top: 0px;
+  
+}
+

@@ -59,14 +59,24 @@ function ParkDetailPage({eachPark, showList, setShowList}){
                     <h2 className='parkDescription'>{parkData.description}</h2>
                     <div className='parkInfo'>
                         <div className='weather'>
-                            Weather
+                            <h3>Weather</h3>
                             <h5>{parkData.weatherInfo}</h5>
                         </div>
                         <div className='directions'>
-                            Directions
+                            <h3>Directions</h3>
                             <h5>{parkData.directionsInfo}</h5>
                         </div>
                     </div>
+                    <div className='activities'>
+                        <h3>Activities</h3>
+                        {parkData.activities.map(activity=>{
+                            return(
+                            <div className='activities-list'>
+                                <h5 className='activities-list'>{activity.name}</h5>
+                            </div>
+                            )
+                        })}
+                     </div>
                 </div>
             ) 
         })
