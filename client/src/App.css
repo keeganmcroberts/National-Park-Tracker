@@ -62,11 +62,31 @@ li.dropdown {
   cursor: pointer;
 }
 
+.homepage-images{
+  height: 200px;
+  width: 200px;
+  border: 5px double;
+}
 
+.homePage{
+  justify-content: center;
+}
 
 .parkPage{
   display: grid;
+  grid-template-columns: 200px 200px 200px 200px;
+  grid-column-gap: 100px;
+  grid-row-gap: 100px;
+  justify-content: center;
 }
+.home-map-container {
+  height: 300px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
 .parkTitle{
   display: flex;
   justify-content: center;
