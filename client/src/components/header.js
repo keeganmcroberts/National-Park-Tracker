@@ -26,8 +26,8 @@ function Header({parkData, showList, setShowList}){
 
     return(
         <div className="header">
-            <h1 className="returnHome" onClick={returnHome}>National Parks</h1>
             <div className="page-banner">
+                <a onClick={returnHome} href="javascript:void(0)" class="dropbtn">Home</a>
                 <li className="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">Parks</a>
                 {parkData.map(eachPark=>{

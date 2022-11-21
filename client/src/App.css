@@ -23,11 +23,17 @@ body{
 }
 
 .page-banner{
+  display: flex;
+  justify-content: space-evenly;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
   width: 100vw;
   height: 30px;
   background-color:rgb(215, 232, 201);
+  position: fixed;
+  z-index: 2;
+  box-shadow: 0 4px 8px 0 #efe8e8, 0 6px 20px 0 #e5d2cf;;
+
 }
 
 
