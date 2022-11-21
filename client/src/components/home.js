@@ -12,7 +12,7 @@ function Home({parkData}){
     const [map, setMap] = useState(null);
     const [lng, setLng] = useState(-94.578331);
     const [lat, setLat] = useState(39.099724);
-    const [zoom, setZoom] = useState(2);
+    const [zoom, setZoom] = useState(3);
     
     const ref = useRef(null);
 

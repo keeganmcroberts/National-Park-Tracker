@@ -1,9 +1,9 @@
 body{
-  background-color:rgb(215, 232, 201);
+  background-color:rgb(220, 226, 214);
 }
 
 .App{
-  background-color:rgb(215, 232, 201);
+  background-color:rgb(220, 226, 214);
   min-height: 100%;
   width: 100vw;
   
@@ -28,16 +28,13 @@ body{
   border-top: 2px solid black;
   border-bottom: 2px solid black;
   width: 100vw;
-  height: 30px;
-  background-color:rgb(215, 232, 201);
+  height: 50px;
+  background-color:rgb(246, 249, 244);
   position: fixed;
   z-index: 2;
-  box-shadow: 0 4px 8px 0 #efe8e8, 0 6px 20px 0 #e5d2cf;;
+  box-shadow: 0 4px 8px 0 #d3f0cb, 0 6px 20px 0 #d8ecc9;;
 
 }
-
-
-
 
 
 .dropdown:hover .dropbtn {
@@ -65,7 +62,10 @@ li.dropdown {
   
 }
 
-
+a.link:hover{
+  background-color:rgb(220, 226, 214);
+  border-radius: 20%;
+}
 
 
 .dropdown-content a:hover {background-color: rgb(125, 108, 224);}
@@ -76,8 +76,8 @@ li.dropdown {
 
 .home--park-card{
   text-align: center;
- 
 }
+
 
 .card-title{
 inline-size: 200px;
@@ -105,7 +105,7 @@ inline-size: 200px;
 }
 
 .homePageGrid{
-  margin-top: 200px;
+  margin-top: 100px;
   display: grid;
   grid-template-columns: 200px 200px 200px 200px;
   grid-column-gap: 100px;
