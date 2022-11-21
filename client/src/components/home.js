@@ -38,10 +38,23 @@ function Home({parkData}){
     }, []);
 
     
-    // const marker = new mapboxgl.Marker()
-    //     .setLngLat([-94, 39])
-    //     .addTo(map)
-        // .setPopup(new mapboxgl.Popup().setHTML("<h3>City</h3>"))
+
+
+    if (map){
+    parkData.map(eachPark=>{
+        if(eachPark.designation === "National Park"){
+
+        const marker = new mapboxgl.Marker()
+        .setLngLat([eachPark.longitude, eachPark.latitude])
+        .addTo(map)
+        .setPopup(new mapboxgl.Popup().setHTML(`<h3>${eachPark.fullName} </h3>`))
+    }
+    })
+    }
+
+    
+
+  
 
 
     let navigate = useNavigate();
@@ -59,8 +72,8 @@ function Home({parkData}){
                 return (
                     <div className="home--park-card">
                         <h5 className='card-title'>{eachPark.fullName}</h5>
-                        <img onClick={() => viewPark(eachPark.parkCode)}  className="homepage-images" src={eachPark.images[0].url}></img>
-                        <button className="info-button" onClick={() => viewPark(eachPark.parkCode)}>More info {'>>'} </button>
+                        <img className="homepage-images" src={eachPark.images[0].url}></img>
+                        <button className="info-button" onClick={() => viewPark(eachPark.parkCode)}>More info</button>
                     </div>
                 )
             })}

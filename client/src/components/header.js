@@ -22,26 +22,32 @@ function Header({parkData, showList, setShowList}){
         navigate('/')
     }
 
+    function viewDropdown(){
+        setShowList(!showList)
+    }
 
-
+    console.log(showList)
 
 
 
     return(
         <div className="header">
             <div className="page-banner">
-                <a onClick={returnHome} href="javascript:void(0)" class="link"> <GiMountainClimbing size='3rem' color='green'/></a>
-                <a onClick={returnHome} href="javascript:void(0)" class="link"> <HiOutlineHome size = '3rem' color='green'/> </a>
-                <li className="dropdown">
-                    <a href="javascript:void(0)" class="dropdown-link"> <GiMountains size='3rem' color='green'/>  </a>
-                {parkData.map(eachPark=>{
-                if(eachPark.designation === "National Park" && showList)
-                return(
-                <div className="dropdown-content">
-                    <a onClick={() => viewPark(eachPark.parkCode)} className="links">{eachPark.fullName}</a>        
+                <div className="dropdown">
+                    <a  class="dropdown-link"> <GiMountains onClick={viewDropdown} size='3rem' color='green'/>  </a>
+                    <div className='park-list'>
+                        {parkData.map(eachPark=>{
+                        if(eachPark.designation === "National Park" && showList)
+                            return(
+                            <div className="dropdown-content">
+                                <a onClick={() => viewPark(eachPark.parkCode)} className="links">{eachPark.fullName}</a>        
+                            </div>
+                            )
+                        })}
+                    </div>
                 </div>
-                )})}
-                </li>
+                <a onClick={returnHome} href="javascript:void(0)" class="link"> <HiOutlineHome size = '3rem' color='green'/> </a>
+                <a onClick={returnHome} href="javascript:void(0)" class="link"> <GiMountainClimbing size='3rem' color='green'/> <div className='link-text'></div></a>
             </div>
 
         </div>

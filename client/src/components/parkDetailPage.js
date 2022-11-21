@@ -41,7 +41,6 @@ function ParkDetailPage({eachPark, showList, setShowList}){
           zoom: zoom
         });
         setMap(map);
-        setShowList(!showList)
       }
     },[park])
 

@@ -3,7 +3,7 @@ body{
 }
 
 .App{
-  background-color:rgb(220, 226, 214);
+  background-color:rgb(233, 250, 216);
   min-height: 100%;
   width: 100vw;
   
@@ -26,49 +26,78 @@ body{
   display: flex;
   justify-content: space-evenly;
   border-top: 2px solid black;
-  border-bottom: 2px solid black;
   width: 100vw;
   height: 50px;
   background-color:rgb(246, 249, 244);
   position: fixed;
   z-index: 2;
-  box-shadow: 0 4px 8px 0 #d3f0cb, 0 6px 20px 0 #d8ecc9;;
+  box-shadow: 0 4px 8px 0 #d7f1be, 0 6px 20px 0 #282a27;;
 
 }
 
 
-.dropdown:hover .dropbtn {
+/* .dropdown:hover .dropbtn {
   
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
-}
+} */
 
-li.dropdown {
+.dropdown {
   display: block;
   width: 50px;
+  /* overflow: scroll; */
   
 }
 
 .dropdown-content {
-  display: none;
-  position: relative;
+  display: block;
   background-color: #f9f9f9;
   width: 300px;
   box-shadow: 0px 8px 16px 0px rgba(45, 44, 44, 0.748);
   z-index: 10;
   cursor: pointer;
-  
+}
+
+.park-list{
+  position: absolute;
+  left: 0;
+  padding-bottom: 80px;
+  height: 92vh;
+  width: 300px;
+  overflow: scroll;
+}
+
+
+a.link{
+  text-decoration: none;
+}
+
+.dropdown-link{
+ cursor: pointer;
 }
 
 a.link:hover{
   background-color:rgb(220, 226, 214);
   border-radius: 20%;
+ 
+}
+
+a.link:hover .link-text{
+  display: block;
 }
 
 
-.dropdown-content a:hover {background-color: rgb(125, 108, 224);}
+.link-text{
+  display: none;
+  color: black;
+  background-color:rgb(220, 226, 214);
+  border-radius: 30%;
+}
+
+
+.dropdown-content a:hover {background-color: rgb(65, 135, 77);}
 
 .returnHome{
   cursor: pointer;
@@ -87,9 +116,11 @@ inline-size: 200px;
   height: 200px;
   width: 200px;
   border: 5px double;
+  box-shadow: 0 4px 8px 0 #d7f1be, 0 6px 20px 0 #282a27;;
 }
 
 .info-button{
+  margin-top: 5px;
  margin-left: auto;
  background-color:rgb(200, 235, 171);
  border-radius: 25%;
@@ -100,8 +131,9 @@ inline-size: 200px;
   background-color: green;
 }
 
-.homePage{
+.homepage{
   justify-content: center;
+  margin-top: 50px;
 }
 
 .homePageGrid{
@@ -114,10 +146,11 @@ inline-size: 200px;
 }
 
 .home-map-container {
-  height: 300px;
+  height: 400px;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
+  border: 5px double green;
 }
 
 
@@ -128,9 +161,9 @@ inline-size: 200px;
   font-size: xx-large;
 }
 .parkCard{
+  margin-top: 100px;
   height: 500px;
   align-items: center;
-  background-color:rgb(215, 232, 201);
 }
 .map-container {
   height: 400px;

@@ -18,7 +18,7 @@ function App() {
   
   const [parkData, setParkData] = useState([])
   const [nationalParks, setNationalParks] = useState([])
-  const [showList, setShowList] = useState(true)
+  const [showList, setShowList] = useState(false)
 
 useEffect(()=>{
   fetch('https://developer.nps.gov/api/v1/parks?limit=468&api_key=iT95c3FtY8GgMJecfLupDHzfbezucejRgKnDMPu5')
