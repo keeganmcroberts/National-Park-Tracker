@@ -44,17 +44,19 @@ function Home({parkData}){
     parkData.map(eachPark=>{
         if(eachPark.designation === "National Park"){
 
-        const marker = new mapboxgl.Marker()
+        const marker = new mapboxgl.Marker({color : 'green'})
         .setLngLat([eachPark.longitude, eachPark.latitude])
         .addTo(map)
-        .setPopup(new mapboxgl.Popup().setHTML(`<h3>${eachPark.fullName} </h3>`))
+        .setPopup(new mapboxgl.Popup().setHTML(`<h3>${eachPark.fullName} </h3>` + `<button> hi </button>`))
+
+        // marker.getElement().addEventListener("click", ()=> viewPark(eachPark.parkCode))
     }
     })
     }
 
     
 
-  
+
 
 
     let navigate = useNavigate();
@@ -71,7 +73,7 @@ function Home({parkData}){
                 if(eachPark.designation === "National Park")
                 return (
                     <div className="home--park-card">
-                        <h5 className='card-title'>{eachPark.fullName}</h5>
+                        <h5 className='card-title'>{eachPark.fullName} ({eachPark.states})</h5>
                         <img className="homepage-images" src={eachPark.images[0].url}></img>
                         <button className="info-button" onClick={() => viewPark(eachPark.parkCode)}>More info</button>
                     </div>
