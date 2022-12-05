@@ -21,21 +21,22 @@ function App() {
   const [parkData, setParkData] = useState([])
   const [nationalParks, setNationalParks] = useState([])
   const [showList, setShowList] = useState(false)
-
-useEffect(()=>{
-  fetch('https://developer.nps.gov/api/v1/parks?limit=468&api_key=iT95c3FtY8GgMJecfLupDHzfbezucejRgKnDMPu5')
-  .then(r => r.json())
-  .then(parkData => {
-    setParkData(parkData.data)
-    const  parkArray = []
-    parkData.data.map(eachPark=>{
-      if (eachPark.designation === "National Park"){
-        parkArray.push(eachPark)
-      }
+  
+  useEffect(()=>{
+    fetch('https://developer.nps.gov/api/v1/parks?limit=468&api_key=iT95c3FtY8GgMJecfLupDHzfbezucejRgKnDMPu5')
+    .then(r => r.json())
+    .then(parkData => {
+      setParkData(parkData.data)
+      const  parkArray = []
+      parkData.data.map(eachPark=>{
+        if (eachPark.designation === "National Park"){
+          parkArray.push(eachPark)
+        }
+      })
+      setNationalParks(parkArray)
     })
-    setNationalParks(parkArray)
-  })
   }, [])
+  
 
   // useEffect(()=>{
     // parkData.map(eachPark=>{
@@ -45,14 +46,14 @@ useEffect(()=>{
     // })
   // }, [])
 
-  console.log("National parks:", nationalParks)
+  
 
 
   return (
     <div className="App">
       <Header showList={showList} setShowList={setShowList} parkData={parkData}/>
       <Routes>
-        <Route path="/" element={<Home parkData={parkData}/>}></Route>
+        <Route path="/" element={<Home parkData={parkData} nationalParks={nationalParks}/>}></Route>
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/signup" element={<Signup/>}></Route>
         <Route path="/park/:parkCode" element={<ParkDetailPage setShowList={setShowList} showList={showList} />}></Route>

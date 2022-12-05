@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2VlZ2FuLW1jcm9iZXJ0cyIsImEiOiJjbGExZmVwdnEwMnF3M3BranY2eG51bmdvIn0.ZZtanHWCPYfhDObnypq7VA';
 
-function Home({parkData}){
+function Home({parkData, nationalParks}){
     
     //api key = iT95c3FtY8GgMJecfLupDHzfbezucejRgKnDMPu5
 
@@ -15,6 +15,7 @@ function Home({parkData}){
     const [zoom, setZoom] = useState(3);
     
     const ref = useRef(null);
+
 
 
     // console.log("Home Data", parkData)
@@ -37,9 +38,22 @@ function Home({parkData}){
       }
     }, []);
 
+    console.log(nationalParks)
 
+    const popUpRef = useRef(new mapboxgl.Popup({ offset: 15 }))
 
-    
+    const Popup = ({nationalParks})=>{
+        nationalParks.map(park=>{
+            return(
+            <div className='popup'>
+            <h3 className='popup-name'>{park.fullName}</h3>
+            <button className='popup-button'>Info</button>
+            </div>
+            )
+        })
+    }
+
+   
 
 
     if (map){

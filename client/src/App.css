@@ -91,6 +91,11 @@ body{
   background-color: #c55440;
   border-radius: 20%;
   padding: 10px;
+  cursor: pointer;
+}
+
+.login-button:hover{
+  background-color: rgb(231, 144, 144);
 }
 
 .park-list{

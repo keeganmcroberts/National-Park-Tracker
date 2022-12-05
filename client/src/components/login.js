@@ -23,13 +23,17 @@ function Login(){
           setSignupLogin(!signupLogin)
       }
 
+      function login(event){
+          event.preventDefault()
+      }
+
 
 
     return(
         (signupLogin ? 
         <div className="login">
             <h1>Login</h1>
-            <form>
+            <form onSubmit={login}>
                 
                 <input className='login-links'  name="email" value={email} onChange={handleChange} required />
                 <br></br>
@@ -44,7 +48,7 @@ function Login(){
         : 
         <div className="login">
             <h1>Sign up</h1>
-            <form>
+            <form onSubmit={login}>
                 
                 <input className='login-links'  name="email" value={email} onChange={handleChange} required />
                 <br></br>
