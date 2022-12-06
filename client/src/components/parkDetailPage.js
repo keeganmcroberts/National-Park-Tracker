@@ -8,7 +8,7 @@ function ParkDetailPage({eachPark, showList, setShowList}){
     const [map, setMap] = useState(null);
     const [lng, setLng] = useState(0);
     const [lat, setLat] = useState(0);
-    const [zoom, setZoom] = useState(8);
+    const [zoom, setZoom] = useState(9);
     const [park, setParkState] = useState([])
     
     const ref = useRef(null);
@@ -50,10 +50,10 @@ function ParkDetailPage({eachPark, showList, setShowList}){
         park.map(parkData=>{
             return(
                 <div className="parkCard">
+                    <div className="card-background">
                     <p className='parkTitle'>{parkData.fullName}</p>
                     <div className='parkHeader'>
                         <img className="parkImage" src={parkData.images[0].url}></img>
-                        <div ref={ref} className="map-container"> </div>
                     </div>
                     <h2 className='parkDescription'>{parkData.description}</h2>
                     <div className='parkInfo'>
@@ -66,6 +66,7 @@ function ParkDetailPage({eachPark, showList, setShowList}){
                             <h5>{parkData.directionsInfo}</h5>
                         </div>
                     </div>
+                    <div ref={ref} className="map-container"> </div>
                     <div className='activities'>
                         <h3>Activities</h3>
                         {parkData.activities.map(activity=>{
@@ -75,6 +76,7 @@ function ParkDetailPage({eachPark, showList, setShowList}){
                             </div>
                             )
                         })}
+                     </div>
                      </div>
                 </div>
             ) 
