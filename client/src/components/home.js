@@ -89,9 +89,11 @@ function Home({parkData, nationalParks}){
                 if(eachPark.designation === "National Park")
                 return (
                     <div className="home--park-card">
-                        <h5 className='card-title'>{eachPark.fullName} ({eachPark.states})</h5>
+                        <div className='homepage-card-background'>
+                        <h5 className='card-title'>{eachPark.fullName}</h5>
                         <img className="homepage-images" src={eachPark.images[0].url}></img>
                         <button className="info-button" onClick={() => viewPark(eachPark.parkCode)}>More info</button>
+                        </div>
                     </div>
                 )
             })}

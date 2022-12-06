@@ -37,6 +37,8 @@ function Header({parkData, showList, setShowList}){
     return(
         <div className="header">
             <div className="page-banner">
+                <h5 onClick={login} className='banner-login'>Login</h5>
+                <div className='banner-buttons'>
                 <div className="dropdown">
                     <a  class="dropdown-link"> <GiMountains onClick={viewDropdown} size='3rem' color='green'/>  </a>
                     <div className='park-list'>
@@ -51,7 +53,8 @@ function Header({parkData, showList, setShowList}){
                     </div>
                 </div>
                 <a onClick={returnHome} href="javascript:void(0)" class="link"> <HiOutlineHome size = '3rem' color='green'/> </a>
-                <a onClick={login} href="javascript:void(0)" class="link"> <GiMountainClimbing size='3rem' color='green'/> <div className='link-text'></div></a>
+                <a href="javascript:void(0)" class="link"> <GiMountainClimbing size='3rem' color='green'/> <div className='link-text'></div></a>
+            </div>
             </div>
 
         </div>

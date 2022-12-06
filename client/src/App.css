@@ -22,16 +22,25 @@ body{
   align-items: left;
 }
 
+.banner-login{
+  position: fixed;
+  margin-left: 96%;
+  margin-top: 0;
+  cursor: pointer;
+}
+
 .page-banner{
-  display: flex;
-  justify-content: space-evenly;
-  border-top: 2px solid black;
   width: 100vw;
   height: 50px;
   background-color:rgb(246, 249, 244);
   position: fixed;
   z-index: 2;
   box-shadow: 0 4px 8px 0 #d7f1be, 0 6px 20px 0 #282a27;;
+}
+
+.banner-buttons{
+  display: flex;
+  justify-content: space-evenly;
 }
 
 
@@ -175,12 +184,13 @@ margin-top: 5px;
 }
 
 .homePageGrid{
-  margin-top: 100px;
+  margin-top: 50px;
   display: grid;
   grid-template-columns: 200px 200px 200px 200px;
   grid-column-gap: 100px;
   grid-row-gap: 100px;
   justify-content: center;
+ 
 }
 
 .home-map-container {
@@ -189,6 +199,7 @@ margin-top: 5px;
   margin-right: auto;
   margin-left: auto;
   border: 5px double green;
+  box-shadow: 8px 10px 20px 5px #e79d9d, 0 6px 20px 0 #282a27;
 }
 
 
@@ -197,6 +208,15 @@ margin-top: 5px;
   justify-content: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 50px;
+  font-weight: 700;
+  border: 5px double green;
+  box-shadow: 2px 2px 2px 2px #898585, 0 6px 20px 0 #61655e;
+  border-radius: 20%;
+  margin-left: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-right: auto;
+  width: fit-content;
 }
 .parkCard{
   margin-top: 100px;

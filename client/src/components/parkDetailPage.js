@@ -51,7 +51,7 @@ function ParkDetailPage({eachPark, showList, setShowList}){
             return(
                 <div className="parkCard">
                     <div className="card-background">
-                    <p className='parkTitle'>{parkData.fullName}</p>
+                    <h1 className='parkTitle'>{parkData.fullName}</h1>
                     <div className='parkHeader'>
                         <img className="parkImage" src={parkData.images[0].url}></img>
                     </div>
