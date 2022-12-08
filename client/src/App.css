@@ -5,12 +5,7 @@ body{
 .App{
   background-color:rgb(233, 250, 216);
   min-height: 100%;
-  width: 100vw;
-  
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
+  width: 100%;
 }
 
 .header{
@@ -29,6 +24,10 @@ body{
   cursor: pointer;
 }
 
+.banner-login:hover{
+  background-color:rgb(220, 226, 214);
+}
+
 .page-banner{
   width: 100vw;
   height: 50px;
@@ -43,15 +42,6 @@ body{
   justify-content: space-evenly;
 }
 
-
-
-/* .dropdown:hover .dropbtn {
-  
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-} */
 
 .dropdown {
   display: block;
@@ -114,18 +104,32 @@ body{
   height: 92vh;
   width: 300px;
   overflow: scroll;
+  z-index: 5;
 }
 
 
-a.link{
+.link{
   text-decoration: none;
 }
 
 .dropdown-link{
- cursor: pointer;
+  display: flex;
+  cursor: pointer;
 }
 
-a.link:hover{
+.dropdown-link:hover{
+  background-color:rgb(220, 226, 214);
+  border-radius: 20%;
+ 
+}
+
+.dropdown-link.svg:hover{
+  background-color:rgb(220, 226, 214);
+  border-radius: 20%;
+ 
+}
+
+.link:hover{
   background-color:rgb(220, 226, 214);
   border-radius: 20%;
  

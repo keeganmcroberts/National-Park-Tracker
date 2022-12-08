@@ -40,7 +40,7 @@ function Header({parkData, showList, setShowList}){
                 <h5 onClick={login} className='banner-login'>Login</h5>
                 <div className='banner-buttons'>
                 <div className="dropdown">
-                    <a  class="dropdown-link"> <GiMountains onClick={viewDropdown} size='3rem' color='green'/>  </a>
+                    <a  class="dropdown-link" height='3rem'> <GiMountains onClick={viewDropdown} size='3rem' color='green'/>  </a>
                     <div className='park-list'>
                         {parkData.map(eachPark=>{
                         if(eachPark.designation === "National Park" && showList)

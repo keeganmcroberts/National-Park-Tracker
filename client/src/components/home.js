@@ -73,8 +73,6 @@ function Home({parkData, nationalParks}){
     
 
 
-
-
     let navigate = useNavigate();
     
     function viewPark(parkCode){
