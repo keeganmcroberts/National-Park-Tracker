@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   
-  resources :users
+  resources :users, only: [:index, :show, :create, :update]
   get "sign_up", to: "registrations#new"
-  get "about", to: "about#index"
-  get "/", to: "main#index"
+  # get "about", to: "about#index"
+  # get "/", to: "main#index"
   
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

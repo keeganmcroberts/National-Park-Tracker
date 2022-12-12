@@ -4,19 +4,44 @@ function Login(){
 
     const [signupLogin, setSignupLogin] = useState(true)
     const [user, setUser] = useState("")
-    const [account, setAccount] = useState({
+    const [accountLoginInfo, setAccountLoginInfo] = useState({
         email:'email...',
         password:'password...'
     })
 
-    const {email, password} = account
+    const {email, password} = accountLoginInfo
 
 
     const handleChange = (e) => {
-        
-        console.log(e.target)
-        const { name, value } = e.target
-        setAccount({ ...account, [name]: value })
+        setAccountLoginInfo({
+            ...accountLoginInfo,
+            [e.target.name]: e.target.value,
+        });
+      }
+
+
+      function handleSigup(e){
+          e.preventDefault()
+
+          const userInfo = {accountLoginInfo};
+
+          fetch("/users", {
+              method: "POST",
+              headers:{
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify(userInfo),
+          }).then((res) =>{
+              if (res.ok){
+                  res.json().then((user) =>{
+                      setUser(user);
+                  })
+              } else {
+                  res.json().then((errors) => {
+                    console.log(errors)
+                  })
+              }
+          })
       }
 
       function createAccount(){
