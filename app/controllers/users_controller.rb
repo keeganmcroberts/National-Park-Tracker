@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 
-
+    def index
+        user = User.all 
+        render json: user 
+    end
 
     def show
         if current_user
@@ -14,12 +17,9 @@ class UsersController < ApplicationController
 
     def create
         user = User.create(user_parans)
-        if user.valid?
-            session[:user_id] = user.id 
-            render json: user, status: :ok
-        else
-            render json: user.errors.full_messages, status: :unprocessable_entity
-        end
+        
+        render json: user, status: :ok
+       
     end
 
 

@@ -5,41 +5,44 @@ function Login(){
     const [signupLogin, setSignupLogin] = useState(true)
     const [user, setUser] = useState("")
     const [accountLoginInfo, setAccountLoginInfo] = useState({
-        email:'email...',
-        password:'password...'
+        email:'',
+        password:''
     })
+    const [errors, setErrors] = useState([])
 
-    const {email, password} = accountLoginInfo
-
-
+    
+    
     const handleChange = (e) => {
-        setAccountLoginInfo({
-            ...accountLoginInfo,
-            [e.target.name]: e.target.value,
-        });
-      }
+        const {name, value} = e.target
+        setAccountLoginInfo({...accountLoginInfo, [name]: value})
+    }
+    
+    console.log(accountLoginInfo)
+    // const userInfo = {accountLoginInfo};
+    // console.log("USERLOGIN", userInfo)
+    
+    const {email, password} = accountLoginInfo
+    
+    function handleSigup(e){
+        e.preventDefault()
 
+          const user = {
+              email,
+              password
+          } 
 
-      function handleSigup(e){
-          e.preventDefault()
-
-          const userInfo = {accountLoginInfo};
-
-          fetch("/users", {
+          fetch("http://localhost:3000/users", {
               method: "POST",
-              headers:{
-                  "Content-Type": "application/json",
-              },
-              body: JSON.stringify(userInfo),
-          }).then((res) =>{
+              headers:{"Content-Type": "application/json" },
+              body: JSON.stringify(user),
+            })
+            .then((res) =>{
               if (res.ok){
-                  res.json().then((user) =>{
-                      setUser(user);
+                  res.json().then(user =>{
+                      console.log("USER", user);
                   })
               } else {
-                  res.json().then((errors) => {
-                    console.log(errors)
-                  })
+                  res.json().then(json => setErrors(Object.entries(json.errors)))
               }
           })
       }
@@ -73,7 +76,7 @@ function Login(){
         : 
         <div className="login">
             <h1>Sign up</h1>
-            <form onSubmit={login}>
+            <form onSubmit={handleSigup}>
                 
                 <input className='login-links'  name="email" value={email} onChange={handleChange} required />
                 <br></br>
