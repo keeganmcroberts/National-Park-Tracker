@@ -8,7 +8,6 @@ function Login(){
         email:'',
         password:''
     })
-    const [errors, setErrors] = useState([])
 
     
     
@@ -17,7 +16,7 @@ function Login(){
         setAccountLoginInfo({...accountLoginInfo, [name]: value})
     }
     
-    console.log(accountLoginInfo)
+    // console.log(accountLoginInfo)
     // const userInfo = {accountLoginInfo};
     // console.log("USERLOGIN", userInfo)
     
@@ -31,7 +30,7 @@ function Login(){
               password
           } 
 
-          fetch("http://localhost:3000/users", {
+          fetch("/users", {
               method: "POST",
               headers:{"Content-Type": "application/json" },
               body: JSON.stringify(user),
@@ -42,7 +41,9 @@ function Login(){
                       console.log("USER", user);
                   })
               } else {
-                  res.json().then(json => setErrors(Object.entries(json.errors)))
+                  res.json().then((errors) => {
+                    console.log(errors)
+                  })
               }
           })
       }
