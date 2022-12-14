@@ -1,7 +1,10 @@
 class ApplicationController < ActionController::API
   include ActionController::Cookies
 
-
+  def index
+    user = User.all 
+    render json: user 
+  end
 
   private 
 

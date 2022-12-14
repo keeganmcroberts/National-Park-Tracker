@@ -7,7 +7,7 @@ import { HiOutlineHome } from 'react-icons/hi';
 
 
 
-function Header({parkData, showList, setShowList}){
+function Header({parkData, showList, setShowList, user, setUser}){
 
     
 
@@ -26,6 +26,10 @@ function Header({parkData, showList, setShowList}){
         navigate('/login')
     }
 
+    function logout(){
+        navigate('/login')
+    }
+
     function viewDropdown(){
         setShowList(!showList)
     }
@@ -37,7 +41,11 @@ function Header({parkData, showList, setShowList}){
     return(
         <div className="header">
             <div className="page-banner">
+                {user ? 
+                <h5 onClick={logout} className='banner-login'>Logout</h5>
+                :
                 <h5 onClick={login} className='banner-login'>Login</h5>
+                }
                 <div className='banner-buttons'>
                 <div className="dropdown">
                     <a  class="dropdown-link" height='3rem'> <GiMountains onClick={viewDropdown} size='3rem' color='green'/>  </a>

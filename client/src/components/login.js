@@ -1,15 +1,15 @@
 import React, { useRef, useEffect, useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 
-function Login(){
+function Login({user, setUser}){
 
     const [signupLogin, setSignupLogin] = useState(true)
-    const [user, setUser] = useState("")
     const [accountLoginInfo, setAccountLoginInfo] = useState({
-        email:'',
-        password:''
+        email:'email...',
+        password:'password...'
     })
 
-    
+    let navigate = useNavigate()
     
     const handleChange = (e) => {
         const {name, value} = e.target
@@ -39,14 +39,19 @@ function Login(){
               if (res.ok){
                   res.json().then(user =>{
                       console.log("USER", user);
+                      setUser(user)
+                      navigate("/")
+
                   })
               } else {
                   res.json().then((errors) => {
-                    console.log(errors)
+                    alert(errors.errors)
                   })
               }
           })
       }
+
+      console.log(user.email)
 
       function createAccount(){
           setSignupLogin(!signupLogin)

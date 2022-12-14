@@ -21,6 +21,7 @@ function App() {
   const [parkData, setParkData] = useState([])
   const [nationalParks, setNationalParks] = useState([])
   const [showList, setShowList] = useState(false)
+  const [user, setUser] = useState("")
   
   useEffect(()=>{
     fetch('https://developer.nps.gov/api/v1/parks?limit=468&api_key=iT95c3FtY8GgMJecfLupDHzfbezucejRgKnDMPu5')
@@ -51,10 +52,10 @@ function App() {
 
   return (
     <div className="App">
-      <Header showList={showList} setShowList={setShowList} parkData={parkData}/>
+      <Header user={user} setUser={setUser} showList={showList} setShowList={setShowList} parkData={parkData}/>
       <Routes>
-        <Route path="/" element={<Home parkData={parkData} nationalParks={nationalParks}/>}></Route>
-        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/" element={<Home user={user} setUser={setUser} parkData={parkData} nationalParks={nationalParks}/>}></Route>
+        <Route path="/login" element={<Login user={user} setUser={setUser}/>}></Route>
         <Route path="/signup" element={<Signup/>}></Route>
         <Route path="/park/:parkCode" element={<ParkDetailPage setShowList={setShowList} showList={showList} />}></Route>
       </Routes>
