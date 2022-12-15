@@ -34,6 +34,10 @@ function Header({parkData, showList, setShowList, user, setUser}){
         setShowList(!showList)
     }
 
+    function viewProfile(){
+        navigate('/user')
+    }
+
     console.log(showList)
 
 
@@ -61,7 +65,7 @@ function Header({parkData, showList, setShowList, user, setUser}){
                     </div>
                 </div>
                 <a onClick={returnHome} href="javascript:void(0)" class="link"> <HiOutlineHome size = '3rem' color='green'/> </a>
-                <a href="javascript:void(0)" class="link"> <GiMountainClimbing size='3rem' color='green'/> <div className='link-text'></div></a>
+                <a onClick={viewProfile} href="javascript:void(0)" class="link"> <GiMountainClimbing size='3rem' color='green'/> <div className='link-text'></div></a>
             </div>
             </div>
 

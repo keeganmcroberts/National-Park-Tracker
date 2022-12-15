@@ -10,6 +10,7 @@ import Header from './components/header';
 import React, {useState, useEffect} from 'react';
 import Login from './components/login';
 import Signup from './components/signup';
+import ProfilePage from './components/profilePage';
 // import React, { useRef, useEffect, useState } from 'react';
 // import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
  
@@ -57,6 +58,7 @@ function App() {
         <Route path="/" element={<Home user={user} setUser={setUser} parkData={parkData} nationalParks={nationalParks}/>}></Route>
         <Route path="/login" element={<Login user={user} setUser={setUser}/>}></Route>
         <Route path="/signup" element={<Signup/>}></Route>
+        <Route path="/user/:id" element={<ProfilePage/>}></Route>
         <Route path="/park/:parkCode" element={<ParkDetailPage setShowList={setShowList} showList={showList} />}></Route>
       </Routes>
     </div>

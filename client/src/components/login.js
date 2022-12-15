@@ -39,8 +39,8 @@ function Login({user, setUser}){
               if (res.ok){
                   res.json().then(user =>{
                       console.log("USER", user);
-                      setUser(user)
-                      navigate("/")
+                      
+                      navigate(`/user/${user.id}`)
 
                   })
               } else {
@@ -59,6 +59,26 @@ function Login({user, setUser}){
 
       function login(event){
           event.preventDefault()
+          const user = {
+              email,
+              password
+          }
+          fetch (`/users`,{
+              method: 'POST',
+              headers:{'Content-Type': 'application/json'},
+              body:JSON.stringify(user)
+          })
+          .then(res=>{
+              if(res.ok){
+                  res.json().then(user=>{
+                      navigate(`/user/${user.id}`)
+                  })
+              } else{
+                  res.json().then((errors) => {
+                      alert(errors.errors)
+                  }
+                )}
+          })
       }
 
 

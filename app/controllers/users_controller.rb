@@ -5,6 +5,13 @@ class UsersController < ApplicationController
         render json: user 
     end
 
+    # def show
+    #     user = User.find(params[:id])
+    #     render json: user, status :ok
+    # end
+    
+    
+    
     def show
         if current_user
             render json: current_user, status: :ok
