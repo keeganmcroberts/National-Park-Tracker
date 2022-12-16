@@ -86,7 +86,6 @@ function Home({parkData, nationalParks, user, setUser}){
     })
     }
 
-    console.log(user.email)
 
 
     let navigate = useNavigate();

@@ -38,6 +38,29 @@ function Header({parkData, showList, setShowList, user, setUser}){
         navigate(`/user/${user.id}`)
     }
 
+    function logout(){
+        fetch ("/logout",{
+            method: "DELETE"
+        })
+        .then( res => {
+            if (res.ok){
+                setUser(null)
+                navigate('/login')
+        }})
+        alert("You've been Logged out")
+    }
+
+    // fetch (`/login`,{
+    //     method: 'POST',
+    //     headers:{'Content-Type': 'application/json'},
+    //     body:JSON.stringify(user)
+    // })
+    // .then(res=>{
+    //     if(res.ok){
+    //         res.json().then(user=>{
+    //             navigate(`/user/${user.id}`)
+    //         })
+
 
 
 
