@@ -3,9 +3,8 @@ import {useNavigate, useParams} from 'react-router-dom';
 import React, { useRef, useEffect, useState } from 'react';
 
 
-function ProfilePage(){
+function ProfilePage({user, setUser}){
 
-    const [user, setUser] = useState()
     const [errors, setErrors] = useState(false)
 
     const params = useParams()
@@ -33,10 +32,10 @@ function ProfilePage(){
             <br></br>
             <br></br>
             <br></br>
-            <h1>
-                {user.email}
+            <h1> email:</h1>
+            <h1>      
+            {user?.email}
             </h1>
-
         </div>
     )
 }

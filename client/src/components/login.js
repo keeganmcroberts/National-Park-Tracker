@@ -40,7 +40,7 @@ function Login({user, setUser}){
                   res.json().then(user =>{
                       console.log("USER", user);
                       
-                      navigate(`/user/${user.id}`)
+                      navigate(`/`)
 
                   })
               } else {
@@ -51,7 +51,6 @@ function Login({user, setUser}){
           })
       }
 
-      console.log(user.email)
 
       function createAccount(){
           setSignupLogin(!signupLogin)
@@ -63,7 +62,7 @@ function Login({user, setUser}){
               email,
               password
           }
-          fetch (`/users`,{
+          fetch (`/login`,{
               method: 'POST',
               headers:{'Content-Type': 'application/json'},
               body:JSON.stringify(user)

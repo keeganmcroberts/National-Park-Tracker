@@ -35,10 +35,9 @@ function Header({parkData, showList, setShowList, user, setUser}){
     }
 
     function viewProfile(){
-        navigate('/user')
+        navigate(`/user/${user.id}`)
     }
 
-    console.log(showList)
 
 
 

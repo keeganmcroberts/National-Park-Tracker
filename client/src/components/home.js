@@ -69,7 +69,7 @@ function Home({parkData, nationalParks, user, setUser}){
         })
     }
 
-   
+   console.log(user)
 
 
     if (map){
@@ -98,7 +98,6 @@ function Home({parkData, nationalParks, user, setUser}){
     return(
         <div className='homepage'>
             <div ref={ref} className="home-map-container"> </div>
-            <div>{user.email}</div>
             <div className="homePageGrid">   
             {parkData.map(eachPark=>{
                 if(eachPark.designation === "National Park")
