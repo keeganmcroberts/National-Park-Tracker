@@ -17,6 +17,16 @@ body{
   align-items: left;
 }
 
+.hover-elements{
+  font-weight: 300;
+  justify-content: center;
+  margin-top: 5px;
+  border: 5px black;
+ position: absolute;
+  color: rgb(2, 1, 1);
+  background-color:rgb(220, 226, 214);
+}
+
 .banner-login{
   position: fixed;
   margin-left: 96%;

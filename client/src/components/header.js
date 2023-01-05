@@ -11,6 +11,35 @@ function Header({parkData, showList, setShowList, user, setUser}){
 
     
 
+    const [parksButtonHovering, setParksButtonHovering] = useState(false);
+    const [homeButtonHovering, setHomeButtonHovering] = useState(false);
+    const [profileButtonHovering, setProfileButtonHovering] = useState(false);
+    
+
+    const handleMouseOver = () => {
+      setParksButtonHovering(true);
+    };
+  
+    const handleMouseOut = () => {
+      setParksButtonHovering(false);
+    };
+
+
+    const handleHomeMouseOver = () => {
+        setHomeButtonHovering(true);
+      };
+    
+    const handleHomeMouseOut = () => {
+    setHomeButtonHovering(false);
+    };
+
+    const handleProfileMouseOver = () => {
+    setProfileButtonHovering(true);
+    };
+
+    const handleProfileMouseOut = () => {
+    setProfileButtonHovering(false);
+    };
 
     let navigate = useNavigate();
     function viewPark(parkCode){
@@ -74,20 +103,26 @@ function Header({parkData, showList, setShowList, user, setUser}){
                 }
                 <div className='banner-buttons'>
                 <div className="dropdown">
-                    <a  class="dropdown-link" height='3rem'> <GiMountains onClick={viewDropdown} size='3rem' color='green'/>  </a>
+                    <a  class="dropdown-link" height='3rem'> <GiMountains onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={viewDropdown} size='3rem' color='green'/> 
+                     </a>
+                        {parksButtonHovering && <h5 className='hover-elements'>View Parks</h5>}
                     <div className='park-list'>
                         {parkData.map(eachPark=>{
-                        if(eachPark.designation === "National Park" && showList)
+                            if(eachPark.designation === "National Park" && showList)
                             return(
-                            <div className="dropdown-content">
+                                <div className="dropdown-content">
                                 <a onClick={() => viewPark(eachPark.parkCode)} className="links">{eachPark.fullName}</a>        
                             </div>
                             )
                         })}
                     </div>
                 </div>
-                <a onClick={returnHome} href="javascript:void(0)" class="link"> <HiOutlineHome size = '3rem' color='green'/> </a>
-                <a onClick={viewProfile} href="javascript:void(0)" class="link"> <GiMountainClimbing size='3rem' color='green'/> <div className='link-text'></div></a>
+                <a onClick={returnHome} onMouseOver={handleHomeMouseOver} onMouseOut={handleHomeMouseOut} href="javascript:void(0)" class="link"> <HiOutlineHome size = '3rem' color='green'/> 
+                {homeButtonHovering && <h5 className='hover-elements'>Home</h5>}
+                </a>
+                <a onClick={viewProfile} onMouseOver={handleProfileMouseOver} onMouseOut={handleProfileMouseOut} href="javascript:void(0)" class="link"> <GiMountainClimbing size='3rem' color='green'/> <div className='link-text'></div>
+                {profileButtonHovering && <h5 className='hover-elements'>Profile</h5>}
+                </a>
             </div>
             </div>
 

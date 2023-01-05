@@ -40,7 +40,7 @@ function Login({user, setUser}){
                   res.json().then(user =>{
                       console.log("USER", user);
                       
-                      navigate(`/`)
+                      navigate(`/user/${user.id}`)
 
                   })
               } else {
@@ -79,10 +79,6 @@ function Login({user, setUser}){
                 )}
           })
       }
-
-
-
-
 
     return(
         (signupLogin ? 
