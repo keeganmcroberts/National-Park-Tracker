@@ -79,7 +79,7 @@ function Home({parkData, nationalParks, user, setUser}){
         const marker = new mapboxgl.Marker({color : 'green'})
         .setLngLat([eachPark.longitude, eachPark.latitude])
         .addTo(map)
-        .setPopup(new mapboxgl.Popup().setHTML(`<h3>${eachPark.fullName} </h3>` + `<button> hi </button>`))
+        .setPopup(new mapboxgl.Popup().setHTML(`<h3>${eachPark.fullName} </h3>` + `<button> Park Info </button>`))
 
         // marker.getElement().addEventListener("click", ()=> viewPark(eachPark.parkCode))
     }

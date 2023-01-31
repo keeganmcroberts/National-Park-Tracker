@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import {useParams} from 'react-router-dom'
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+import Rate from './Rating';
+import Review from './review';
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2VlZ2FuLW1jcm9iZXJ0cyIsImEiOiJjbGExZmVwdnEwMnF3M3BranY2eG51bmdvIn0.ZZtanHWCPYfhDObnypq7VA';
 
 function ParkDetailPage({eachPark, showList, setShowList}){
@@ -78,6 +80,8 @@ function ParkDetailPage({eachPark, showList, setShowList}){
                         })}
                      </div>
                      </div>
+                     <Rate/>
+                     <Review/>
                 </div>
             ) 
         })

@@ -10,6 +10,7 @@ import Header from './components/header';
 import React, {useState, useEffect} from 'react';
 import Login from './components/login';
 import Signup from './components/signup';
+import Review from './components/review';
 import ProfilePage from './components/profilePage';
 // import React, { useRef, useEffect, useState } from 'react';
 // import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax

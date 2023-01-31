@@ -100,7 +100,6 @@ function Login({user, setUser}){
         <div className="login">
             <h1>Sign up</h1>
             <form onSubmit={handleSigup}>
-                
                 <input className='login-links'  name="email" value={email} onChange={handleChange} required />
                 <br></br>
                 
