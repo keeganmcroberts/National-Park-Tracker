@@ -5,11 +5,18 @@ import reportWebVitals from './reportWebVitals';
 import ReactDOM from 'react-dom';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { BrowserRouter } from "react-router-dom";
+import { PersistGate } from 'redux-persist/integration/react'
+import { Provider } from 'react-redux';
+import store, { persistor} from './store';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+  <PersistGate loading={null} persistor={persistor}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </PersistGate>
+  </Provider>,
   document.getElementById('root')
 );
 

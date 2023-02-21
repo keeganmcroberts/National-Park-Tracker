@@ -21,22 +21,24 @@ function Review(){
 
     return(
         <div className='comment-form'>
-            <br></br>
-            <br></br>
-            <br></br>
         <form onSubmit={handleSubmit}>
+        <h3 className='comment-form-header'>Leave a Review</h3>
         <input className="comment-input" name="comment" type="text" value={comment} onChange={handleChange}/>
         <input type="submit"/>
         </form>
-        <div>
-           {newComment.map(comments=>{
+        <div className='comment-section'>
+           {useEffect(()=>{
+               newComment.map(comments=>{
                return(
                    <h1>{comments}</h1>
                )
-           })}
+           })
+           }, [handleSubmit])
+        }
         </div>
         </div>
     )
 }
+
 
 export default Review;

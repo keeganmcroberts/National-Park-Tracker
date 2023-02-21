@@ -304,7 +304,17 @@ margin-top: 5px;
     /* margin-top: 50px; */
     /* display: block; */
 }
+.comment-form-header{
+margin-bottom: 20px;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .comment-input{
+ 
+}
+.comment-section{
+  color: red;
+  margin-top: 50px;
 
 }
 
