@@ -5,8 +5,8 @@ function Login({user, setUser}){
 
     const [signupLogin, setSignupLogin] = useState(true)
     const [accountLoginInfo, setAccountLoginInfo] = useState({
-        email:'email...',
-        password:'password...'
+        email:'',
+        password:''
     })
 
     let navigate = useNavigate()
@@ -54,6 +54,8 @@ function Login({user, setUser}){
 
       function createAccount(){
           setSignupLogin(!signupLogin)
+          setAccountLoginInfo({ email:'',
+          password:''})
       }
 
       function login(event){
@@ -84,11 +86,13 @@ function Login({user, setUser}){
         <div className="login">
             <h1>Login</h1>
             <form onSubmit={login}>
+                <div className='login-form'>
+                    <h4>email:</h4>
+                    <input className='login-field'  name="email" value={email} onChange={handleChange} required />
                 
-                <input className='login-links'  name="email" value={email} onChange={handleChange} required />
-                <br></br>
-                
-                <input className='login-links'  name="password" value={password} onChange={handleChange} required />
+                    <h4>password:</h4>
+                    <input className='login-password'  name="password" value={password} onChange={handleChange} required />
+                </div>
                 <h5 className='login-options'>Forgot Password?</h5>
                 <h5 onClick={createAccount} className='login-options'>Create Account</h5>
                 <br></br>
@@ -99,12 +103,13 @@ function Login({user, setUser}){
         <div className="login">
             <h1>Sign up</h1>
             <form onSubmit={handleSigup}>
-                <input className='login-links'  name="email" value={email} onChange={handleChange} required />
-                <br></br>
-                
-                <input className='login-links'  name="password" value={password} onChange={handleChange} required />
-                <h5 className='login-options'>Forgot Password?</h5>
-                <h5 onClick={createAccount} className='login-options'>Already have an account? Sign in</h5>
+                <div className='login-form'>
+                    <h4>email:</h4>
+                    <input className='login-field'  name="email" value={email} onChange={handleChange} required />
+                    <h4>password:</h4>
+                    <input className='login-password'  name="password" value={password} onChange={handleChange} required />
+                </div>
+                <h5 onClick={createAccount} className='login-options'>Have an account? Sign in</h5>
                 <br></br>
                 <input className='login-button' type="submit" value="Sign up"></input>
             </form>

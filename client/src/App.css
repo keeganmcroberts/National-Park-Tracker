@@ -74,7 +74,7 @@ body{
   text-align: center;
   position: absolute;
   top: 35%;
-  left: 35%;
+  left: 36%;
   /* margin-top: -50px;
   margin-left: -40px; */
   width: 400px;
@@ -85,10 +85,23 @@ body{
   display: block;
 }
 
-.login-links{
+.login-form{
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.login-field{
   padding: 5px;
-  margin: 5px;
-  
+  margin: 10px;
+  margin-top: 5px;
+}
+
+.login-password{
+  padding: 5px;
+  margin: 10px;
+  margin-top: 5px;
+  -webkit-text-security: disc;
+  text-security: disc;
 }
 
 .login-options{
@@ -97,10 +110,11 @@ body{
 }
 
 .login-button{
-  background-color: #c55440;
+  background-color: rgba(235, 105, 105, 0.748);
   border-radius: 20%;
   padding: 10px;
   cursor: pointer;
+  width: 100px;
 }
 
 .login-button:hover{
