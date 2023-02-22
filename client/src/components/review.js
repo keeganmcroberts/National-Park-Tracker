@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 
 
-function Review(){
+function Review({user}){
     const [comment, setComment] = useState('');
     const [newComment, setNewComment] = useState([]);
 
@@ -15,9 +15,11 @@ function Review(){
           event.preventDefault()
 
           newComment.unshift(comment)
-      }
 
-      console.log("comment array", newComment)
+          if (!user){
+              alert("Must be signed in to comment")
+          }
+      }
 
     return(
         <div className='comment-form'>
@@ -30,7 +32,10 @@ function Review(){
                 <h3>Comments:</h3>
                     {newComment.map(comments=>{
                     return(
-                   <h4 className='comments'>{comments}</h4>
+                        user ?
+                   <h4 className='comments'>{user.email}:  {comments}</h4>
+                   :
+                   null 
                     )
                     })} 
             </div>

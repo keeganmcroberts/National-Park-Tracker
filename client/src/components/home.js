@@ -54,7 +54,7 @@ function Home({parkData, nationalParks, user, setUser}){
       }
     }, []);
 
-    console.log(nationalParks)
+    // console.log(nationalParks)
 
     const popUpRef = useRef(new mapboxgl.Popup({ offset: 15 }))
 
@@ -69,7 +69,6 @@ function Home({parkData, nationalParks, user, setUser}){
         })
     }
 
-   console.log(user)
 
 
     if (map){
@@ -85,8 +84,6 @@ function Home({parkData, nationalParks, user, setUser}){
     }
     })
     }
-
-
 
     let navigate = useNavigate();
     

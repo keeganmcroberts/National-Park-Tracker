@@ -72,11 +72,10 @@ function Login({user, setUser}){
                   res.json().then(user=>{
                       navigate(`/user/${user.id}`)
                   })
-              } else{
-                  res.json().then((errors) => {
-                      alert(errors.errors)
-                  }
-                )}
+              } if(!res.ok){
+                      alert("Username or Password are incorrect")
+                  
+                }
           })
       }
 

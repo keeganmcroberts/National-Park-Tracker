@@ -2,10 +2,7 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom"
 import Home from './components/home';
-import Players from './components/players';
-import Teams from './components/teams';
 import ParkDetailPage from './components/parkDetailPage';
-import LeagueLeaders from './components/leagueLeaders';
 import Header from './components/header';
 import React, {useState, useEffect} from 'react';
 import Login from './components/login';
@@ -49,9 +46,6 @@ function App() {
     // })
   // }, [])
 
-  
-
-
   return (
     <div className="App">
       <Header user={user} setUser={setUser} showList={showList} setShowList={setShowList} parkData={parkData}/>
@@ -60,7 +54,7 @@ function App() {
         <Route path="/login" element={<Login user={user} setUser={setUser}/>}></Route>
         <Route path="/signup" element={<Signup/>}></Route>
         <Route path="/user/:id" element={<ProfilePage user={user} setUser={setUser}/>}></Route>
-        <Route path="/park/:parkCode" element={<ParkDetailPage setShowList={setShowList} showList={showList} />}></Route>
+        <Route path="/park/:parkCode" element={<ParkDetailPage user={user} />}></Route>
       </Routes>
     </div>
   );
