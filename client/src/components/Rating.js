@@ -22,7 +22,7 @@ return (
 			<FaStar
 				color={
 				givenRating < rate || givenRating === rate
-					? "000"
+					? "rgb(205,205,0)"
 					: "rgb(192,192,192)"
 				}
 			/>

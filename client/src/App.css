@@ -390,6 +390,14 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-family: 'Courier New', Courier, monospace;
   color: black;
   border-bottom: 2px solid rgb(155, 151, 151);;
-  margin-top: 15px;
+  
+ 
+}
+
+.comment-user{
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(9, 118, 9);
+  margin-top: 20px;
+  font-weight: 700;
  
 }

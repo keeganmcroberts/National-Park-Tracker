@@ -9,12 +9,11 @@ function Review({user}){
         setComment(event.target.value);
       };
 
-      console.log(comment)
-
       function handleSubmit(event){
           event.preventDefault()
 
           newComment.unshift(comment)
+          setComment("")
 
           if (!user){
               alert("Must be signed in to comment")
@@ -33,9 +32,13 @@ function Review({user}){
                     {newComment.map(comments=>{
                     return(
                         user ?
-                   <h4 className='comments'>{user.email}:  {comments}</h4>
-                   :
-                   null 
+                            
+                            <div>
+                                <h4 className='comment-user'>{user.email}:</h4>
+                                <h4 className='comments'>{comments}</h4>
+                            </div>
+                        :
+                        null 
                     )
                     })} 
             </div>

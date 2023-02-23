@@ -106,9 +106,10 @@ function Header({parkData, showList, setShowList, user, setUser}){
                     <a  class="dropdown-link" height='3rem'> <GiMountains onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={viewDropdown} size='3rem' color='green'/> 
                      </a>
                         {parksButtonHovering && <h5 className='hover-elements'>View Parks</h5>}
+                    {showList ? 
                     <div className='park-list'>
                         {parkData.map(eachPark=>{
-                            if(eachPark.designation === "National Park" && showList)
+                            if(eachPark.designation === "National Park")
                             return(
                                 <div className="dropdown-content">
                                 <a onClick={() => viewPark(eachPark.parkCode)} className="links">{eachPark.fullName}</a>        
@@ -116,6 +117,7 @@ function Header({parkData, showList, setShowList, user, setUser}){
                             )
                         })}
                     </div>
+                    : null}
                 </div>
                 <a onClick={returnHome} onMouseOver={handleHomeMouseOver} onMouseOut={handleHomeMouseOut} href="javascript:void(0)" class="link"> <HiOutlineHome size = '3rem' color='green'/> 
                 {homeButtonHovering && <h5 className='hover-elements'>Home</h5>}
