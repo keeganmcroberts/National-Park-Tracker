@@ -87,7 +87,7 @@ body{
 
 .login-form{
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 
 .login-field{
@@ -107,6 +107,11 @@ body{
 .login-options{
   cursor: pointer;
   
+}
+
+.login-error-message{
+  color: rgb(177, 8, 8);
+  margin-bottom: 30px;
 }
 
 .login-button{
@@ -400,4 +405,9 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   margin-top: 20px;
   font-weight: 700;
  
+}
+
+.comment-error-message{
+  color: rgb(195, 8, 8);
+  margin-top: 10px;
 }

@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState } from 'react';
 function Review({user}){
     const [comment, setComment] = useState('');
     const [newComment, setNewComment] = useState([]);
+    const [errorMessage, setErrorMessage] = useState("")
 
     function handleChange( event ) {
         setComment(event.target.value);
@@ -12,13 +13,20 @@ function Review({user}){
       function handleSubmit(event){
           event.preventDefault()
 
+        //   let object = {
+        //       comment: comment,
+        //       parkCode: parkCode
+        //   }
+
+
+
           newComment.unshift(comment)
           setComment("")
 
           if (!user){
-              alert("Must be signed in to comment")
+              setErrorMessage("Must be signed in to comment")
           }
-      }
+      } 
 
     return(
         <div className='comment-form'>
@@ -26,6 +34,9 @@ function Review({user}){
                 <h3 className='comment-form-header'>Leave a Review</h3>
                 <input className="comment-input" name="comment" type="text" value={comment} onChange={handleChange}/>
                 <input type="submit"/>
+                {!user ? 
+                <h4 className='comment-error-message'>{errorMessage}</h4>
+                : null}
             </form>
             <div className='comment-section'>
                 <h3>Comments:</h3>

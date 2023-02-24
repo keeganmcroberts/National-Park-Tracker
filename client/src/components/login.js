@@ -4,6 +4,8 @@ import {useNavigate} from 'react-router-dom';
 function Login({user, setUser}){
 
     const [signupLogin, setSignupLogin] = useState(true)
+    const [loginErrorMessage, setLoginErrorMessage] = useState("")
+    const [loginError, setLoginError] = useState(false)
     const [accountLoginInfo, setAccountLoginInfo] = useState({
         email:'',
         password:''
@@ -45,7 +47,6 @@ function Login({user, setUser}){
                   })
               } else {
                   res.json().then((errors) => {
-                    alert(errors.errors)
                   })
               }
           })
@@ -72,10 +73,12 @@ function Login({user, setUser}){
           .then(res=>{
               if(res.ok){
                   res.json().then(user=>{
+                    setLoginError(false)
                       navigate(`/user/${user.id}`)
                   })
               } if(!res.ok){
-                      alert("Username or Password are incorrect")
+                setLoginError(true)
+                setLoginErrorMessage("Username or Password is Incorrect")
                   
                 }
           })
@@ -93,6 +96,9 @@ function Login({user, setUser}){
                     <h4>password:</h4>
                     <input className='login-password'  name="password" value={password} onChange={handleChange} required />
                 </div>
+                {loginError ? 
+                <h5 className="login-error-message">{loginErrorMessage}</h5>
+                : null}
                 <h5 className='login-options'>Forgot Password?</h5>
                 <h5 onClick={createAccount} className='login-options'>Create Account</h5>
                 <br></br>
