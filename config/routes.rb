@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post "/users", to: "users#create"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+  post "/userComment", to: "comments#create"
+  get "/userComment", to: "comments#index"
   # get "about", to: "about#index"
   # get "/", to: "main#index"
   

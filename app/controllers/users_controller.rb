@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+    rescue_from ActiveRecord::RecordNotFound, with: :item_not_found
+    rescue_from ActiveRecord::RecordInvalid, with: :user_did_not_create
+
+
     def index
         user = User.all 
         render json: user 
@@ -35,6 +39,15 @@ class UsersController < ApplicationController
 
 
 private
+
+def item_not_found
+    render json: {error: "item not found"}
+end
+
+def user_did_not_create(invalid_user)
+    render json: {error: invalid_user.record.errors.full_messages}
+    
+end
 
 def user_params
     params.permit(:email, :password)

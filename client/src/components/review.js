@@ -13,20 +13,45 @@ function Review({user}){
       function handleSubmit(event){
           event.preventDefault()
 
-        //   let object = {
-        //       comment: comment,
-        //       parkCode: parkCode
-        //   }
-
-
-
-          newComment.unshift(comment)
-          setComment("")
-
+          
+          //newComment.unshift(comment) // this will eventually go once the POST request adds actual comment to backend db 
+          //setComment("")
+          
           if (!user){
               setErrorMessage("Must be signed in to comment")
-          }
+            }
+
+
+
+            let userComment = {
+                comment: comment
+            }
+
+          fetch(`/userComment`,{
+            method:'POST',
+            headers:{'Content-Type': 'application/json'},
+            body:JSON.stringify(userComment)
+          })
+          .then(r => r.json())
+          .then(comment=>{
+            console.log(comment.comment)
+        })
       } 
+
+      useEffect(()=>{
+        fetch("/userComment")
+        .then(res => res.json())
+        .then(comments => {setNewComment(comments)
+        
+        })}, [])
+
+
+        console.log("comments array:", newComment)
+
+        // newComment.forEach(eachComment=>{
+        //     console.log(eachComment.comment)
+        // })
+        
 
     return(
         <div className='comment-form'>
@@ -42,11 +67,11 @@ function Review({user}){
                 <h3>Comments:</h3>
                     {newComment.map(comments=>{
                     return(
-                        user ?
+                        !user ?
                             
                             <div>
-                                <h4 className='comment-user'>{user.email}:</h4>
-                                <h4 className='comments'>{comments}</h4>
+                                {/* <h4 className='comment-user'>{user.email}:</h4> */}
+                                <h4 className='comments'>{comments.comment}</h4>
                             </div>
                         :
                         null 

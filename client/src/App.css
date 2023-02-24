@@ -40,7 +40,7 @@ body{
 
 .page-banner{
   width: 100vw;
-  height: 50px;
+  height: 60px;
   background-color:rgb(246, 249, 244);
   position: fixed;
   z-index: 2;
