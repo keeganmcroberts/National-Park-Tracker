@@ -16,6 +16,18 @@ class CommentsController < ApplicationController
         end
     end
 
+    def destroy
+        destroyed_comment = Comment.find_by!(id: params[:id])
+        if destroyed_comment
+            destroyed_comment.destroy 
+            head :no_content 
+        else
+            item_not_found
+        end
+    
+
+    end
+
 
     private
 
@@ -23,4 +35,9 @@ class CommentsController < ApplicationController
         params.permit(:comment, :parkCode)
     end
         
+    def item_not_found
+        render json: {error: "item not found"}
+    end
+
+
     end

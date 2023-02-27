@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   post "/userComment", to: "comments#create"
   get "/userComment", to: "comments#index"
+  delete "/deleteComment/:id", to: "comments#destroy"
   # get "about", to: "about#index"
   # get "/", to: "main#index"
   

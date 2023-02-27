@@ -45,6 +45,19 @@ function Review({user}){
       } 
 
 
+      function deleteComment(id){
+    
+        fetch(`/deleteComment/${id}`,{
+            method:'DELETE'
+          })
+        
+    
+          .then(()=>{
+            fetch("/userComment")
+            .then(res => res.json())
+            .then(data => setNewComment(data))    
+          })
+    }
       
       
       useEffect(()=>{
@@ -79,11 +92,12 @@ function Review({user}){
                     {newComment.map(comments=>{
                         if (comments.parkCode === parkCode)
                     return(
-                        user ?
+                        !user ?
                             
-                            <div>
+                            <div className='comments'>
                                 {/* <h4 className='comment-user'>{user.email}:</h4> */}
-                                <h4 className='comments'>{comments.comment}</h4>
+                                <h4>{comments.comment}</h4> 
+                                <button onClick={()=>deleteComment(comments.id)}>Delete</button>
                             </div>
                         :
                         null 
