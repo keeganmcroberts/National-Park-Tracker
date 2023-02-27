@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
     private
 
     def strong_params
-        params.permit(:comment)
+        params.permit(:comment, :parkCode)
     end
         
     end

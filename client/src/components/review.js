@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import {useParams} from 'react-router-dom'
 
 
 function Review({user}){
@@ -10,10 +11,15 @@ function Review({user}){
         setComment(event.target.value);
       };
 
+      const {parkCode} = useParams();
+
+      console.log("park code", parkCode)
+      console.log("user id", user.id)
+
+
       function handleSubmit(event){
           event.preventDefault()
 
-          
           //newComment.unshift(comment) // this will eventually go once the POST request adds actual comment to backend db 
           //setComment("")
           
@@ -21,10 +27,10 @@ function Review({user}){
               setErrorMessage("Must be signed in to comment")
             }
 
-
-
             let userComment = {
-                comment: comment
+                comment: comment,
+                parkCode: parkCode,
+                // user: user.id
             }
 
           fetch(`/userComment`,{
@@ -34,14 +40,19 @@ function Review({user}){
           })
           .then(r => r.json())
           .then(comment=>{
-            console.log(comment.comment)
+            setNewComment([comment, ...newComment])
         })
       } 
 
+
+      
+      
       useEffect(()=>{
         fetch("/userComment")
         .then(res => res.json())
-        .then(comments => {setNewComment(comments)
+        .then(comments =>
+            
+            {setNewComment(comments)
         
         })}, [])
 
@@ -66,8 +77,9 @@ function Review({user}){
             <div className='comment-section'>
                 <h3>Comments:</h3>
                     {newComment.map(comments=>{
+                        if (comments.parkCode === parkCode)
                     return(
-                        !user ?
+                        user ?
                             
                             <div>
                                 {/* <h4 className='comment-user'>{user.email}:</h4> */}
