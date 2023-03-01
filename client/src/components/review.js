@@ -25,6 +25,7 @@ function Review({user}){
           let userComment = {
               comment: comment,
               parkCode: parkCode,
+              user_id: user.id
               // user: user.id
           }
           

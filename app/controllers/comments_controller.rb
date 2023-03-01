@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
 
-
     def index
         render json: Comment.all
     end
@@ -32,12 +31,10 @@ class CommentsController < ApplicationController
     private
 
     def strong_params
-        params.permit(:comment, :parkCode)
+        params.permit(:comment, :parkCode, :user_id)
     end
         
     def item_not_found
         render json: {error: "item not found"}
     end
-
-
-    end
+end
