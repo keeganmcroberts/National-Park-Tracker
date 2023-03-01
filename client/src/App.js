@@ -36,6 +36,8 @@ function App() {
       setNationalParks(parkArray)
     })
   }, [])
+
+  
   
 
   // useEffect(()=>{

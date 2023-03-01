@@ -22,28 +22,30 @@ function Review({user}){
 
           //newComment.unshift(comment) // this will eventually go once the POST request adds actual comment to backend db 
           //setComment("")
+          let userComment = {
+              comment: comment,
+              parkCode: parkCode,
+              // user: user.id
+          }
           
-          if (!user){
-              setErrorMessage("Must be signed in to comment")
+          
+          if (user){
+              fetch(`/userComment`,{
+                  method:'POST',
+                  headers:{'Content-Type': 'application/json'},
+                  body:JSON.stringify(userComment)
+                })
+                .then(r => r.json())
+                .then(comment=>{
+                    setNewComment([comment, ...newComment])
+                })
             }
-
-            let userComment = {
-                comment: comment,
-                parkCode: parkCode,
-                // user: user.id
-            }
-
-          fetch(`/userComment`,{
-            method:'POST',
-            headers:{'Content-Type': 'application/json'},
-            body:JSON.stringify(userComment)
-          })
-          .then(r => r.json())
-          .then(comment=>{
-            setNewComment([comment, ...newComment])
-        })
-      } 
-
+            else {
+                setErrorMessage("Must be signed in to comment")
+              }
+        } 
+        
+        console.log("our user:", user)
 
       function deleteComment(id){
     
@@ -92,15 +94,15 @@ function Review({user}){
                     {newComment.map(comments=>{
                         if (comments.parkCode === parkCode)
                     return(
-                        !user ?
+                        // user ?
                             
                             <div className='comments'>
                                 {/* <h4 className='comment-user'>{user.email}:</h4> */}
                                 <h4>{comments.comment}</h4> 
                                 <button onClick={()=>deleteComment(comments.id)}>Delete</button>
                             </div>
-                        :
-                        null 
+                        // :
+                        // null 
                     )
                     })} 
             </div>
