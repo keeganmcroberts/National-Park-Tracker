@@ -98,7 +98,7 @@ function Review({user}){
                         // user ?
                             
                             <div className='comments'>
-                                {/* <h4 className='comment-user'>{user.email}:</h4> */}
+                                <h4 className='comment-user'>{comments.user.email}:</h4>
                                 <h4>{comments.comment}</h4> 
                                 <button onClick={()=>deleteComment(comments.id)}>Delete</button>
                             </div>
