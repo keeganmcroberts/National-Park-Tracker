@@ -7,14 +7,24 @@ function Review({user}){
     const [newComment, setNewComment] = useState([]);
     const [errorMessage, setErrorMessage] = useState("")
 
+    useEffect(()=>{
+        fetch("/userComment")
+        .then(res => res.json())
+        .then(comments =>
+            
+            {setNewComment(comments)
+        
+        })
+}, [])
+
     function handleChange( event ) {
         setComment(event.target.value);
       };
 
       const {parkCode} = useParams();
 
-      console.log("park code", parkCode)
-      console.log("user id", user.id)
+    //   console.log("park code", parkCode)
+    //   console.log("user id", user.id)
 
 
       function handleSubmit(event){
@@ -48,11 +58,14 @@ function Review({user}){
         
         console.log("our user:", user)
 
-      function deleteComment(id){
+      function deleteComment(id, user_id){
     
-        fetch(`/deleteComment/${id}`,{
-            method:'DELETE'
-          })
+// if signed in user_id matches id of the comment's associated user_id, then delete 
+
+        if (user.id === user_id){
+            fetch(`/deleteComment/${id}`,{
+                method:'DELETE'
+            })
         
     
           .then(()=>{
@@ -60,17 +73,19 @@ function Review({user}){
             .then(res => res.json())
             .then(data => setNewComment(data))    
           })
-    }
-      
-      
-      useEffect(()=>{
-        fetch("/userComment")
-        .then(res => res.json())
-        .then(comments =>
+    //   useEffect(()=>{
+            // fetch("/userComment")
+            // .then(res => res.json())
+            // .then(comments =>
+                
+            //     {setNewComment(comments)
             
-            {setNewComment(comments)
-        
-        })}, [])
+            // })
+    // }, [])
+        }else{
+            alert("NO SIR")
+        }
+    }
 
 
         console.log("comments array:", newComment)
@@ -100,7 +115,7 @@ function Review({user}){
                             <div className='comments'>
                                 <h4 className='comment-user'>{comments.user.email}:</h4>
                                 <h4>{comments.comment}</h4> 
-                                <button onClick={()=>deleteComment(comments.id)}>Delete</button>
+                                <button onClick={()=>deleteComment(comments.id, comments.user_id)}>Delete</button>
                             </div>
                         // :
                         // null 
