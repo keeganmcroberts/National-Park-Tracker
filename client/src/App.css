@@ -197,6 +197,7 @@ inline-size: 200px;
   width: 200px;
   border: 5px double;
   box-shadow: 5px 5px 8px 0 #e79d9d, 0 6px 20px 0 #282a27;;
+  border-radius: 10%;
 }
 
 .info-button{
@@ -220,7 +221,7 @@ margin-top: 5px;
   margin-top: 50px;
   display: grid;
   grid-template-columns: 200px 200px 200px 200px;
-  grid-column-gap: 100px;
+  grid-column-gap: 150px;
   grid-row-gap: 100px;
   justify-content: center;
  
@@ -410,4 +411,13 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 .comment-error-message{
   color: rgb(195, 8, 8);
   margin-top: 10px;
+}
+
+.delete-button{
+  display: inline-block;
+}
+
+.delete-button:hover{
+  background-color: green;
+  max-width: fit-content;
 }

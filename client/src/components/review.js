@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import {useParams} from 'react-router-dom'
+import { BsFillTrashFill } from 'react-icons/bs';
 
 
 function Review({user}){
@@ -115,7 +116,7 @@ function Review({user}){
                             <div className='comments'>
                                 <h4 className='comment-user'>{comments.user.email}:</h4>
                                 <h4>{comments.comment}</h4> 
-                                <button onClick={()=>deleteComment(comments.id, comments.user_id)}>Delete</button>
+                                <div className='delete-button' onClick={()=>deleteComment(comments.id, comments.user_id)}><BsFillTrashFill/></div>
                             </div>
                         // :
                         // null 

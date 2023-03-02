@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom'
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 import Rate from './Rating';
 import Review from './review';
+import { AiOutlineCheckCircle } from "react-icons/ai";
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2VlZ2FuLW1jcm9iZXJ0cyIsImEiOiJjbGExZmVwdnEwMnF3M3BranY2eG51bmdvIn0.ZZtanHWCPYfhDObnypq7VA';
 
 function ParkDetailPage({eachPark, user}){
@@ -12,6 +13,7 @@ function ParkDetailPage({eachPark, user}){
     const [lat, setLat] = useState(0);
     const [zoom, setZoom] = useState(9);
     const [park, setParkState] = useState([])
+    const [visitedPark, setVisitedPark] = useState(false)
     
     const ref = useRef(null);
 
@@ -23,11 +25,6 @@ function ParkDetailPage({eachPark, user}){
         .then(r => r.json())
         .then(park =>   setParkState(park.data))
     }, [parkCode])
-
-    // console.log("park", park)
-    // console.log("long", lng)
-    // console.log("lat", lat)
-
 
 
     useEffect(()=>{
@@ -47,13 +44,18 @@ function ParkDetailPage({eachPark, user}){
     },[park])
 
 
+    function likePark(){
+        setVisitedPark(!visitedPark)
+    }
+
+
     return(
         // <div></div>
         park.map(parkData=>{
             return(
                 <div className="parkCard">
                     <div className="card-background">
-                    <h1 className='parkTitle'>{parkData.fullName}</h1>
+                    <h1 className='parkTitle'>{parkData.fullName} <AiOutlineCheckCircle onClick={likePark} color={visitedPark ? "rgb(0,0,0)" : "rgb(0,0,225)"}/></h1>
                     <div className='parkHeader'>
                         <img className="parkImage" src={parkData.images[0].url}></img>
                     </div>
