@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :user_parks
   resources :comments
   resources :users, only: [:index, :show, :update]
   # get "sign_up", to: "registrations#new"
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
   post "/userComment", to: "comments#create"
   get "/userComment", to: "comments#index"
   delete "/deleteComment/:id", to: "comments#destroy"
+  post "/likePark", to: "user_parks#create"
   # get "about", to: "about#index"
   # get "/", to: "main#index"
   

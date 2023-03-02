@@ -61,7 +61,6 @@ function Review({user}){
 
       function deleteComment(id, user_id){
     
-// if signed in user_id matches id of the comment's associated user_id, then delete 
 
         if (user.id === user_id){
             fetch(`/deleteComment/${id}`,{
@@ -114,7 +113,9 @@ function Review({user}){
                         // user ?
                             
                             <div className='comments'>
-                                <h4 className='comment-user'>{comments.user.email}:</h4>
+                                {comments.user 
+                                ? <h4 className='comment-user'>{comments.user.email}:</h4>
+                                : null }
                                 <h4>{comments.comment}</h4> 
                                 <div className='delete-button' onClick={()=>deleteComment(comments.id, comments.user_id)}><BsFillTrashFill/></div>
                             </div>

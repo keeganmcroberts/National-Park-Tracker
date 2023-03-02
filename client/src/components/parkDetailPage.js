@@ -55,7 +55,7 @@ function ParkDetailPage({eachPark, user}){
             return(
                 <div className="parkCard">
                     <div className="card-background">
-                    <h1 className='parkTitle'>{parkData.fullName} <AiOutlineCheckCircle onClick={likePark} color={visitedPark ? "rgb(0,0,0)" : "rgb(0,0,225)"}/></h1>
+                    <h1 className='parkTitle'>{parkData.fullName} <AiOutlineCheckCircle onClick={likePark} color={visitedPark? "rgb(0,0,225)" : "rgb(0,0,0)" }/></h1>
                     <div className='parkHeader'>
                         <img className="parkImage" src={parkData.images[0].url}></img>
                     </div>
