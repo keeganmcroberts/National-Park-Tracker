@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/userComment", to: "comments#index"
   delete "/deleteComment/:id", to: "comments#destroy"
   post "/likePark", to: "user_parks#create"
+  get "/userParks", to: "user_parks#index"
   # get "about", to: "about#index"
   # get "/", to: "main#index"
   

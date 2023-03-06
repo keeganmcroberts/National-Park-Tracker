@@ -24,9 +24,13 @@ class UserParksController < ApplicationController
 
 
 
+    # def index
+    #     user_parks = UserPark.all.filter{ |eachUserPark| eachUserPark.user_id == session[:user_id]}
+    #     render json: user_parks
+    # end
+
     def index
-        user_parks = UserPark.all.filter{ |eachUserPark| eachUserPark.user_id == session[:user_id]}
-        render json: user_parks
+        render json: UserPark.all
     end
 
     private

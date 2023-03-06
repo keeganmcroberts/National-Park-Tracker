@@ -6,6 +6,7 @@ import React, { useRef, useEffect, useState } from 'react';
 function ProfilePage({user, setUser}){
 
     const [errors, setErrors] = useState(false)
+    const [parksArray, setParksArray] = useState([])
 
     const params = useParams()
     const {id} = params
@@ -23,6 +24,17 @@ function ProfilePage({user, setUser}){
             }
         })
     },[])
+
+
+    useEffect(()=>{
+        fetch("/userParks")
+        .then(res => res.json())
+        .then(parks =>
+            
+            console.log(parks)
+        
+        )
+}, [])
 
 
 
