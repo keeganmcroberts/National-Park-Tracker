@@ -14,6 +14,7 @@ function ParkDetailPage({eachPark, user}){
     const [zoom, setZoom] = useState(9);
     const [park, setParkState] = useState([])
     const [visitedPark, setVisitedPark] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
     
     const ref = useRef(null);
 
@@ -44,9 +45,41 @@ function ParkDetailPage({eachPark, user}){
     },[park])
 
 
-    function likePark(){
-        setVisitedPark(!visitedPark)
+    // function likePark(){
+    //     setVisitedPark(!visitedPark)
+    // }
+
+    function logLike(){
+        console.log("Ive been Clicked!")
     }
+
+    function likePark(event){
+
+        setVisitedPark(!visitedPark)
+
+
+        let userPark = {
+            user_id: user.id,
+            parkCode: parkCode,
+            liked: true
+        }
+        
+        
+        if (user){
+            fetch(`/likePark`,{
+                method:'POST',
+                headers:{'Content-Type': 'application/json'},
+                body:JSON.stringify(userPark)
+              })
+              .then(r => r.json())
+              .then(userPark=>{
+                  console.log("USER PARK:", userPark)
+              })
+          }
+          else {
+              console.log("Must be signed in to save park")
+            }
+      } 
 
 
     return(
@@ -55,7 +88,7 @@ function ParkDetailPage({eachPark, user}){
             return(
                 <div className="parkCard">
                     <div className="card-background">
-                    <h1 className='parkTitle'>{parkData.fullName} <AiOutlineCheckCircle onClick={likePark} color={visitedPark? "rgb(0,0,225)" : "rgb(0,0,0)" }/></h1>
+                    <h1 className='parkTitle'>{parkData.fullName} <AiOutlineCheckCircle onClick={()=>likePark()} color={visitedPark? "rgb(0,0,225)" : "rgb(0,0,0)" }/></h1>
                     <div className='parkHeader'>
                         <img className="parkImage" src={parkData.images[0].url}></img>
                     </div>

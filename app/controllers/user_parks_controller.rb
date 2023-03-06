@@ -1,10 +1,10 @@
 class UserParksController < ApplicationController
 
     def create 
-        find_user = User.find_by(id: session[:user_id])
+        # find_user = User.find_by(id: session[:user_id])
 
-        if find_user 
-            render json: find_user
+        # if find_user 
+        #     render json: find_user
         # params[:user_id] = session[:user_id]
         # params[:parkCode] = params[:id]
         
@@ -16,10 +16,17 @@ class UserParksController < ApplicationController
             render json: {error:new_user_park.errors.full_messages}
         end
         
-        else
-            render json: {error:"no good"}
-        end
+        # else
+        #     render json: {error:"no good"}
+        # end
 
+    end
+
+
+
+    def index
+        user_parks = UserPark.all.filter{ |eachUserPark| eachUserPark.user_id == session[:user_id]}
+        render json: user_parks
     end
 
     private
