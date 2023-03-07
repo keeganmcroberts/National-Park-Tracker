@@ -40,29 +40,27 @@ console.log("user parks:", parksArray)
 console.log("all parks:", parkData)
 
 
-
+return (
+parkData.map(eachPark=>{
     return(
-        <div>
-            <br></br>
-            <br></br>
-            <br></br>
-            <h1> welcome</h1>
-            <h1>      
-            {user?.email}
-            </h1>
-            <br></br>
-            <br></br>
-            <h1>Liked Parks:</h1>
-            {parksArray.map(myParks=>{
-            if (user.id === myParks.user_id)
-                return(
-                    <h4>{myParks.parkCode}</h4>
-                )
+    parksArray.map(myParks=>{
+        if (user.id === myParks.user_id && eachPark.parkCode === myParks.parkCode)
+            return(
+                <div>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    
+                <h4>{eachPark.fullName}</h4>
+                </div>
+            )
 
-            })}
-            
-        </div>
+        })
     )
+    })
+)
 }
 
 export default ProfilePage;
