@@ -55,7 +55,7 @@ function App() {
         <Route path="/" element={<Home user={user} setUser={setUser} parkData={parkData} nationalParks={nationalParks}/>}></Route>
         <Route path="/login" element={<Login user={user} setUser={setUser}/>}></Route>
         <Route path="/signup" element={<Signup/>}></Route>
-        <Route path="/user/:id" element={<ProfilePage user={user} setUser={setUser}/>}></Route>
+        <Route path="/user/:id" element={<ProfilePage user={user} setUser={setUser} parkData={parkData}/>}></Route>
         <Route path="/park/:parkCode" element={<ParkDetailPage user={user} />}></Route>
       </Routes>
     </div>
