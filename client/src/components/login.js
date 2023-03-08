@@ -47,6 +47,7 @@ function Login({user, setUser}){
                   })
               } else {
                   res.json().then((errors) => {
+                      console.log(errors.errors)
                   })
               }
           })

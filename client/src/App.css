@@ -297,6 +297,10 @@ margin-top: 5px;
     /* justify-content: center; */
 }
 
+.like-checkmark{
+  cursor: pointer;
+}
+
 .parkDescription{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color: black;
