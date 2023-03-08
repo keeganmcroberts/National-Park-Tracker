@@ -421,3 +421,14 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   background-color: green;
   max-width: fit-content;
 }
+
+
+.personalProfileGrid{
+  margin-top: 200px;
+  display: grid;
+  grid-template-columns: 200px 200px 200PX 200PX;
+  grid-column-gap: 150px;
+  grid-row-gap: 100px;
+  justify-content: center;
+ 
+}

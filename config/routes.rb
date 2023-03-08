@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   delete "/deleteComment/:id", to: "comments#destroy"
   post "/likePark", to: "user_parks#create"
   get "/userParks", to: "user_parks#index"
+  delete "/deletePark/:id", to: "user_parks#destroy"
   # get "about", to: "about#index"
   # get "/", to: "main#index"
   

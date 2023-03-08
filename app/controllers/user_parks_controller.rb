@@ -33,9 +33,29 @@ class UserParksController < ApplicationController
         render json: UserPark.all
     end
 
+
+    def destroy
+        destroyed_park = UserPark.find_by!(id: params[:id])
+        if destroyed_park
+            destroyed_park.destroy 
+            head :no_content 
+        else
+            item_not_found
+        end
+    
+
+    end
+
+
+    
     private
 
     def strong_params
         params.permit(:user_id, :parkCode, :liked)
     end
+
+    def item_not_found
+        render json: {error: "item not found"}
+    end
+
 end

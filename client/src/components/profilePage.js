@@ -40,27 +40,60 @@ console.log("user parks:", parksArray)
 console.log("all parks:", parkData)
 
 
-return (
-parkData.map(eachPark=>{
-    return(
-    parksArray.map(myParks=>{
-        if (user.id === myParks.user_id && eachPark.parkCode === myParks.parkCode)
-            return(
-                <div>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                    
-                <h4>{eachPark.fullName}</h4>
-                </div>
-            )
+let navigate = useNavigate();
+function viewPark(parkCode){
+    navigate(`/park/${parkCode}`)
+}
 
+
+    function deletePark(id, user_id){
+    
+
+   
+        fetch(`/deletePark/${id}`,{
+            method:'DELETE'
         })
+    
+
+      .then(()=>{
+        fetch("/userParks")
+        .then(res => res.json())
+        .then(data => setParksArray(data))    
+      })
+}
+
+
+return (
+    <div className='personalProfileGrid'>
+    {parkData.map(eachPark=>{
+         return(
+            parksArray.map(myParks=>{
+            if (user.id === myParks.user_id && eachPark.parkCode === myParks.parkCode)
+                return(
+                <div className='home--park-card'>
+                    <h4 className='card-title'>{eachPark.fullName}</h4>
+                    <img className='homepage-images' src={eachPark.images[0].url}></img>
+                    <button className="info-button" onClick={() => viewPark(eachPark.parkCode)}>More info</button>
+                    <button onClick={()=>deletePark(myParks.id)}  className='info-button'>Unfollow</button>
+                </div>
+                )
+
+            })
+        )
+    })}
+    </div>
     )
-    })
-)
 }
 
 export default ProfilePage;
+
+
+                // <div className="home--park-card">
+                //         <div className='homepage-card-background'>
+                //             <h5 className='card-title'>{eachPark.fullName}</h5>
+                //             <img className="homepage-images" src={eachPark.images[0].url}></img>
+                //             <button className="info-button" onClick={() => viewPark(eachPark.parkCode)}>More info</button>
+                //         </div>
+                //     </div>
+
+                // onClick={()=>deletePark(myParks.id)}
