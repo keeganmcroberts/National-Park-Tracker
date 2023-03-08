@@ -80,7 +80,12 @@ function Home({parkData, nationalParks, user, setUser}){
         .addTo(map)
         .setPopup(new mapboxgl.Popup().setHTML(`<h3>${eachPark.fullName} </h3>` + `<button> Park Info </button>`))
 
-        // marker.getElement().addEventListener("click", ()=> viewPark(eachPark.parkCode))
+        const markerDiv = marker.getElement();
+
+        markerDiv.addEventListener('mouseenter', () => marker.togglePopup());
+        markerDiv.addEventListener('mouseleave', () => marker.togglePopup());
+       
+        marker.getElement().addEventListener("click", ()=> viewPark(eachPark.parkCode))
     }
     })
     }
