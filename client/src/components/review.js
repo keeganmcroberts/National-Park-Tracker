@@ -57,7 +57,6 @@ function Review({user}){
               }
         } 
         
-        console.log("our user:", user)
 
       function deleteComment(id, user_id){
     
@@ -65,35 +64,18 @@ function Review({user}){
         if (user.id === user_id){
             fetch(`/deleteComment/${id}`,{
                 method:'DELETE'
-            })
+         })
         
-    
           .then(()=>{
             fetch("/userComment")
             .then(res => res.json())
             .then(data => setNewComment(data))    
           })
-    //   useEffect(()=>{
-            // fetch("/userComment")
-            // .then(res => res.json())
-            // .then(comments =>
-                
-            //     {setNewComment(comments)
-            
-            // })
-    // }, [])
+          
         }else{
             alert("NO SIR")
         }
     }
-
-
-        console.log("comments array:", newComment)
-
-        // newComment.forEach(eachComment=>{
-        //     console.log(eachComment.comment)
-        // })
-        
 
     return(
         <div className='comment-form'>

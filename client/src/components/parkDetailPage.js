@@ -15,11 +15,11 @@ function ParkDetailPage({eachPark, user}){
     const [park, setParkState] = useState([])
     const [visitedPark, setVisitedPark] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
+    const [parksArray, setParksArray] = useState([])
     
     const ref = useRef(null);
-
     const {parkCode} = useParams();
-    // console.log(parkCode)
+
     
     useEffect(()=>{
         fetch(`https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=ucQKJncpa0SLn9kkLWxilWBYcHhCIsr2794F4fte`)
@@ -45,25 +45,35 @@ function ParkDetailPage({eachPark, user}){
     },[park])
 
 
-    // function likePark(){
-    //     setVisitedPark(!visitedPark)
-    // }
+    useEffect(()=>{
+        fetch("/userParks")
+        .then(res => res.json())
+        .then(parks =>
+            
+            setParksArray(parks)
+        
+        )
+    }, [])
 
-    function logLike(){
-        console.log("Ive been Clicked!")
-    }
+
+    useEffect(()=>{
+        parksArray.map(eachPark=>{
+            if (eachPark.parkCode === parkCode && eachPark.liked && eachPark.user_id === user.id){
+                setVisitedPark(true)
+            }
+        })
+
+    })
 
     function likePark(event){
 
         setVisitedPark(!visitedPark)
-
 
         let userPark = {
             user_id: user.id,
             parkCode: parkCode,
             liked: true
         }
-        
         
         if (user){
             fetch(`/likePark`,{
@@ -73,7 +83,7 @@ function ParkDetailPage({eachPark, user}){
               })
               .then(r => r.json())
               .then(userPark=>{
-                  console.log("USER PARK:", userPark)
+                  console.log(null)
               })
           }
           else {

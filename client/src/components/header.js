@@ -73,8 +73,8 @@ function Header({parkData, showList, setShowList, user, setUser}){
         })
         .then( res => {
             if (res.ok){
-                setUser(null)
                 navigate('/login')
+                setUser(null)
         }})
         alert("You've been Logged out")
     }
