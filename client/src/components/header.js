@@ -55,9 +55,6 @@ function Header({parkData, showList, setShowList, user, setUser}){
         navigate('/login')
     }
 
-    function logout(){
-        navigate('/login')
-    }
 
     function viewDropdown(){
         setShowList(!showList)

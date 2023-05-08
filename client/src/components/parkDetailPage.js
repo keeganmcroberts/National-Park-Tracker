@@ -55,6 +55,8 @@ function ParkDetailPage({eachPark, user}){
         )
     }, [])
 
+    console.log("parks array", parksArray)
+
 
     useEffect(()=>{
         parksArray.map(eachPark=>{
